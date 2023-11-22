@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.separator {
+    width: center;
+    height: 100%;
+    background-color: #000;
+    margin: 0 50px; /* Ajuste conforme necessário */
+}
+
+.side-image {
+    margin-right: 20px; /* Ajuste conforme necessário para dar espaço entre a imagem e a linha */
+}
+
+.cadastro-section {
+    flex: 1;
+}
+
+.header {
+    padding: 20px 0;
+}
+
+.logo {
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.container {
+    border-radius: 5px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 50px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px;
+    border-radius: 50px;
+    font-size: 14px;
+    background-color: #f1f1f1c7;
+}
+
+input[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #00a0e3;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.message {
+    margin-top: 20px;
+    color: #888;
+}
+
+.button {
+    display: inline-block;
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #00a0e3;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.side-image {
+    position: absolute;
+    width: 50vw;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.left {
+    left: calc(10vw);
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-image {
+        width: 100%;
+        position: static;
+        transform: translateY(0);
+        margin-bottom: 20px; /* Adiciona espaço entre a imagem e a seção de cadastro */
+    }
+
+    .separator {
+        display: none;
+    }
+}
