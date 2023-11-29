@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Goal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='partidas.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imagens/delta_goal_logo.png') }}">
+</head>
+<body>
+    <div class="header">
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='imagens/logo_b_w.png') }}" alt="Logo" class="logo">
+        </a>
+        <a href="{{ url_for('home') }}" >Home</a>
+        <a href="{{ url_for('time') }}" >Time</a> 
+        <a href="{{ url_for('paridas') }}" >Partidas</a>
+        <a href="{{ url_for('login') }}">Sair</a>
+    </div>
+    <div class="pagina"> voce ta na pagina de partidas
+    </div>
+</body>
+</html>

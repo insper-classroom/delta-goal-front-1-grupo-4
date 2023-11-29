@@ -21,6 +21,11 @@ body {
     display: block; /* Isso faz a imagem ser tratada como um bloco, permitindo o uso de margin auto */
 }
 
+.message {
+    margin-top: 20px;
+    color: #888;
+}
+
 .container {
     background-color: #fff;
     border-radius: 5px;
@@ -45,7 +50,7 @@ h4 {
     color: #737272; /* Define a cor do texto */
   }
   
-  .button {
+.button {
     display: inline-block; /* Permite a aplicação de padding e width */
     width: 40%; /* Reduz a largura do botão */
     padding: 10px;
@@ -69,8 +74,7 @@ a {
     color: #333;
 
 }
-
-input[type="text"], input[type="password"] {
+input[type="email"] {
     width: 90%;
     padding: 10px;
     margin-bottom: 20px;
