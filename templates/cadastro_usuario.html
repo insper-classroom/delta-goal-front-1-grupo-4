@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Delta Goal</title>
-    <link rel="stylesheet" href="cadastro_usuario.css">
-    <link rel="icon" href="../imagens/delta_goal_logo.png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='cadastro.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/delta_goal_logo.png') }}">
+  <title>Cadastro</title>
 </head>
 <body>
-    <div class="container">
-        <div class="side-image left">
-            <img src="../imagens/images.png" alt="Imagem Lateral Esquerda">
-        </div>
-        <!-- Adiciona a linha horizontal -->
-        <hr class="separator">
-        <div class="cadastro-section">
-            <h1>Cadastro:</h1>
-            <form>
-                <input type="text" placeholder="Nome">
-                <input type="text" placeholder="Tempo dentro da empresa">
-                <input type="text" placeholder="E-mail">
-                <input type="password" placeholder="Senha">
-                <input type="password" placeholder="Digite sua senha novamente">
-                <a href="login.html" class="button">Acessar</a> 
-            </form>
-        </div>
+  <div class="main-login">
+    <div class="left-login">
+      <img src="{{ url_for('static', filename='imagens/images.png') }}" alt="Logo" class="left-login-image">
+      <hr class="separator"> <!-- Linha separadora -->
     </div>
+    <div class="right-login">
+      <div class="card-login">
+        <h1>Cadastro</h1>
+        <br>
+        <form method="post" action="{{ url_for('cadastro') }}">
+          <input type="text" placeholder="Nome" name="nome" value="{{ request.form['nome'] if 'nome' in request.form else '' }}" required>
+          <input type="email" placeholder="E-mail" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" value="{{ request.form['email'] if 'email' in request.form else '' }}" required>
+            <input type="password" placeholder="Senha" name="senha">
+            <input type="password" placeholder="Confirme a Senha" name="confirma_senha">
+            <button type="submit" class="button">Cadastrar</button>
+        </form>
+        <div class="error-message">
+          {% if error_message %}
+              <p>{{ error_message }}</p>
+          {% endif %}
+      </div>
+        <p class="message">Já possui conta? <a href="{{ url_for('login') }}">Login</a></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

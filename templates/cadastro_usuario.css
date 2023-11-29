@@ -1,99 +1,80 @@
 body {
-    font-family: Arial, sans-serif;
+    min-height: 100vh;
     margin: 0;
-    background-color: white;
-    text-align: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    position: relative;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-}
-
-.separator {
-    width: center;
-    height: 100%;
-    background-color: #000;
-    margin: 0 50px; /* Ajuste conforme necessário */
-}
-
-.side-image {
-    margin-right: 20px; /* Ajuste conforme necessário para dar espaço entre a imagem e a linha */
-}
-
-.cadastro-section {
-    flex: 1;
-}
-
-.header {
-    padding: 20px 0;
-}
-
-.logo {
-    max-width: 250px;
-    margin: 0 auto;
-    display: block;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.container {
-    border-radius: 5px;
-    padding: 30px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 50px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px;
-    border-radius: 50px;
-    font-size: 14px;
-    background-color: #f1f1f1c7;
-}
-
-input[type="submit"] {
-    width: 40%;
-    padding: 10px;
-    border: none;
-    border-radius: 50px;
-    background-color: #00a0e3;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
+    font-family: Arial, sans-serif;
+    background-image: white;
+    box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
-    color: #333;
+    color: black;
+}
+
+
+
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.left-login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-right: 2px solid #000; /* Adiciona uma borda vertical à direita */
+
+}
+
+
+.left-login-image {
+    width: 30vw;
 }
 
 .message {
     margin-top: 20px;
     color: #888;
 }
+.right-login {
+    width: calc(50vw - 10px);    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px; 
+
+
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px ;
+    border-radius: 50px;
+    font-size: 14px;
+    background-color: #f1f1f1;
+
+}
+
+.card-login > h1 {
+    color: #040404;
+    font-weight: 900;
+    margin: 0;
+    font-size: 30px;
+    text-align: text-center;
+    margin-bottom: 20px;
+
+}
 
 .button {
-    display: inline-block;
-    width: 40%;
+    display: inline-block; /* Permite a aplicação de padding e width */
+    width: 45%; /* Reduz a largura do botão */
     padding: 10px;
     border: none;
     border-radius: 50px;
@@ -102,41 +83,38 @@ a {
     text-align: center;
     font-size: 16px;
     cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove o sublinhado do link */
+
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Muda a cor do botão ao passar o mouse */
 }
 
-.side-image {
-    position: absolute;
-    width: 50vw;
-    height: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
 
-.left {
-    left: calc(10vw);
-}
 
 @media only screen and (max-width: 900px) {
-    .container {
+    .card-login {
+        width: 85%;
+        text-align: center;
+
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-login {
         flex-direction: column;
-        align-items: center;
     }
 
-    .side-image {
+    .left-login, .right-login {
         width: 100%;
-        position: static;
-        transform: translateY(0);
-        margin-bottom: 20px; /* Adiciona espaço entre a imagem e a seção de cadastro */
+        height: auto;
     }
 
-    .separator {
+    .left-login > h1, .left-login-image {
         display: none;
     }
+
+
+    
 }
