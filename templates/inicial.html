@@ -7,12 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta Goal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='inicial.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='imagens/delta_goal_logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicial.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
 </head>
 <body>
     
-    <img src="{{ url_for('static', filename='imagens/palmeiras.png') }}" alt="Logotipo Palmeiras" class="time">
+    <img src="{{ url_for('static', filename='img/palmeiras.png') }}" alt="Logotipo Palmeiras" class="time">
     <div class="welcome-message">
         Bem-vindo(a), {{ session['username'] }}!
         <br>
