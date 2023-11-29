@@ -1,0 +1,786 @@
+@import url( 'https://fonts.googleapis.com/css2?family=Ubuntu:wght@300 ; 400 ; 500 ; 700 & display = swap ');
+/* Globals */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu ', sans-serif ;
+}
+a{
+    color:var(--white);
+    text-decoration: none;
+     
+}
+:root{
+    --blue: #181818 ;
+    --grey:#e6e6e6;
+    --white: #fff;
+    --black1: pink;
+    --black2: pink;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+li{
+    list-style: none;
+}
+
+.perfil_usuario,.detalhe_time,.lista_profissionais,.detalhe_times,.lista_time,.add_time,.user_img{
+    text-align: center;
+    list-style: none;
+}
+
+.resumo{
+    list-style: none;
+    background-color: pink;
+    padding: 5%;
+}
+.img_profissionais,.img_badget,.img_times{
+    max-width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img_detalhe,.img_perfil,.img_time,.img_resumo,.img_times_detalhe,.img_engajamento{
+    max-width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+
+/* Navigation */
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active{
+    width: 80px;
+}
+
+.main.active{
+    width: calc(100% -80px);
+    left: 80px;
+
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+ 
+.navigation ul li{
+    position: relative; 
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:nth-child(1){ /* Espaço entre logo e links */
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.navigation ul li:nth-child(2):hover,.navigation ul li:nth-child(2).hovered, 
+.navigation ul li:nth-child(3):hover,.navigation ul li:nth-child(3).hovered,
+.navigation ul li:nth-child(4):hover,.navigation ul li:nth-child(4).hovered,
+.navigation ul li:nth-child(5):hover,.navigation ul li:nth-child(5).hovered,
+.navigation ul li:nth-child(6):hover,.navigation ul li:nth-child(6).hovered{
+    background: white;
+}
+
+
+.navigation ul li a{ /* Letras */
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a{ /* Cor letra pos hover */
+    color: rgb(2, 2, 2);
+}
+
+.navigation ul li a .icon{ /* Formatação dos icones */
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+} 
+
+.logo{
+    margin-left: 13px;
+}
+
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+} 
+
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap ;
+}
+.navigation ul li:nth-child(2):hover a::before,.navigation ul li:nth-child(2).hovered a::before,
+.navigation ul li:nth-child(3):hover a::before,.navigation ul li:nth-child(3).hovered a::before,
+.navigation ul li:nth-child(4):hover a::before,.navigation ul li:nth-child(4).hovered a::before,
+.navigation ul li:nth-child(5):hover a::before,.navigation ul li:nth-child(5).hovered a::before,
+.navigation ul li:nth-child(6):hover a::before,.navigation ul li:nth-child(6).hovered a::before
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #ffffff;
+    pointer-events: none; 
+}
+.navigation ul li:nth-child(2):hover a::after,.navigation ul li:nth-child(2).hovered a::after,
+.navigation ul li:nth-child(3):hover a::after,.navigation ul li:nth-child(3).hovered a::after,
+.navigation ul li:nth-child(4):hover a::after,.navigation ul li:nth-child(4).hovered a::after,
+.navigation ul li:nth-child(5):hover a::after,.navigation ul li:nth-child(5).hovered a::after,
+.navigation ul li:nth-child(6):hover a::after,.navigation ul li:nth-child(6).hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #ffffff;
+    pointer-events: none;
+}
+
+
+
+/* main */
+.main{
+    position: absolute;
+    width: calc(100% -300px);
+    left: 300px;
+    min-height: 100vh;
+    background: transparent;
+    transition: 0.5s;
+}
+
+.topbar{
+    min-width: 100vh;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background: transparent;
+}
+.toggle{
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+  
+  .user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* PERFIL BOX */
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    display: grid;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    cursor: pointer;
+    box-shadow: 0 7px 25px pink;
+}
+
+.cardBox .card .welcome ,.cardName{
+    position: relative;
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.cardBox .card .cardName{
+    color: var(pink);
+    font-size: 1.1rem;
+    margin-top: 8px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.cardBox .card:hover {
+    background: var(--blue);
+}
+.cardBox .card:hover .welcome,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: pink;
+}
+
+  /* PROFISSIONAIS */
+.profs {
+    position: relative;
+    display: grid;
+    min-height: 300px;
+    max-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.16);
+    border-radius: 20px;
+    grid-gap: 30px;
+    background-color: pink;
+    overflow: scroll;
+    
+}
+
+.profs .imgBx, .times .imgBx ,.times_times .imgBx{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.profs .imgBx img ,.times .imgBx img,.times_times .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profs table tr td {
+    padding: 12px 10px;
+}
+
+.profs table tr td h4 { /* Nome profissional */
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.2rem;
+}
+.profs table tr td h4 span { /* email profissional */
+    font-size: 14px;
+    color: var(pink);
+}
+.profs table tr:hover {/* Hover de cada profissional */
+    background: var(--blue);
+    color: var(--white);
+}
+.profs table tr:hover td h4 span { /* Letra fica branca no hover */
+    color: var(--white);
+}
+
+.details .prof{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.prof h2 { /* Lista Profissionais */
+    font-weight: 300;
+    color: var(--blue);
+}
+.prof .btn { /* Botão view all */
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* TIMES */
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 30px;
+    margin-top: 10px; 
+}
+
+.details .times {
+    position: relative;
+    display: grid;
+    min-height: 300px;
+    max-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.16);
+    border-radius: 20px;
+    grid-gap: 30px;
+    background-color: pink;
+    overflow: scroll;
+}
+
+
+.cardHeader, .prof{
+    position: relative;
+    display: grid;
+    min-height: 10px;
+}
+
+.details .cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2 {
+    font-weight: 300;
+    color: var(--blue);
+
+}
+.cardHeader .btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.details .times table tr,.details .profs table tr {
+    color: var(pink);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .times table tr:last-child,.details .profs table tr:last-child{
+    border-bottom: none;
+}
+.details .times table tbody tr:hover,.details .profs table tbody tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+.times table tr td,.profs table tr td{
+    padding: 12px 10px;
+}
+
+.times table tr td h4,.profs table tr td h4{
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.2rem;
+}
+
+/* PARTE RESPONSIVA */
+@media (max-width: 991px) { /* !!!!!!! ADD MUDANCAS !!!!!! */
+.navigation {
+    left: -300px;
+}
+.navigation.active {
+    width: 300px;
+    left: 0;
+}
+.main {
+    width: 100%;
+    left: 0;
+}
+.main.active {
+    left: 300px;
+}
+.cardBox {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 768px) {
+.details {
+    grid-template-columns: 1fr;
+}
+.times {
+    overflow-x: auto;
+}
+}
+
+@media (max-width: 480px) {
+.cardBox {
+    grid-template-columns: repeat(1, 1fr);
+}
+.prof h2 {
+    font-size: 20px;
+}
+.user {
+    min-width: 40px;
+}
+.navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+}
+.navigation.active {
+    width: 100%;
+    left: 0;
+}
+.toggle {
+    z-index: 10001;
+}
+.main.active .toggle {
+    color: pink;
+    position: fixed;
+    right: 0;
+    left: initial;
+}
+}
+
+/* PERFIL */
+
+.new_time{ /* Criar novo time */
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.btn_perfil{ /* Editar Perfil e Trocar senha */
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-left: 15.7px;
+}
+.btn_excluir{
+    background: var(--blue);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    padding: 5px 10px;
+
+
+}
+
+.perfil_cardBox{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    display: grid;
+}
+
+.perfil_cardBox .perfil_card{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.16);
+}
+
+.perfil_cardBox .perfil_card .welcome {
+    position: relative;
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.perfil_cardBox .perfil_card .cardName {
+    color: var(pink);
+    font-size: 1.1rem;
+    margin-top: 8px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.cardName_time a{
+    color: var(pink);
+}
+
+.cardName_time a:hover{
+    color: pink;
+}
+
+/* LISTA PROFISSIONAIS */
+.profs_profs {
+    /* position: relative;
+    min-height: 10px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px; */ /* QUADRARDO EM VOLTA */
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.profs_profs .imgBx{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.profs_profs .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profs_profs table tr td {
+    padding: 12px 10px;
+}
+
+.profs_profs table tr td h4 { /* Nome profissional */
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.2rem;
+}
+.profs_profs table tr td h4 span { /* email profissional */
+    font-size: 14px;
+    color: var(pink);
+}
+.profs_profs table tr:hover {/* Hover de cada profissional */
+    background: var(--blue);
+    color: var(--white);
+}
+.profs_profs table tr:hover td h4 span { /* Letra fica branca no hover */
+    color: var(--white);
+}
+
+.prof_prof h2 { /* Lista Profissionais */
+    font-weight: 400;
+    color: var(--blue);
+}
+.prof_prof .btn { /* Botão do Search Bar */
+    position: relative;
+    padding: 2.5px 5px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    border: none;
+}
+
+
+/* LISTA TIMES */
+.details_times{
+    padding: 20px;
+    margin-left: 20px;
+}
+
+/* .details_times .times_times {
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+} */ /* BORDA EM VOLTA */
+
+.cardHeader_times h2 {
+    font-weight: 400;
+    color: var(--blue);
+
+}
+
+.details_times table, .details_profs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details_times .times_times table tbody tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+.times_times table tr td{
+    padding: 12px 10px;
+}
+
+.times_times table tr td h4{
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.2rem;
+}
+
+/* CADASTRO TIME */
+
+.novotime_card .btn{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.novotime_cardBox{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    display: grid;
+}
+
+.novotime_cardBox .novotime_card{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px pink;
+}
+
+.novotime_cardBox .novotime_card .welcome {
+    position: relative;
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.btn_time{
+    position: relative;
+    padding: 5px 10px;
+    padding: 5px 10px;
+    margin-left: 40%;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.btnct{
+    position: relative;
+    padding: 5px 10px;
+    margin-left: 40%;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.img_resumo{
+    margin-left: 450px;
+}
+
+.engajamento_times_top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+
+}
+
+.engajamento_times_timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-groupPA{
+    position: relative;
+    display: block;
+    padding: 10px;
+    box-shadow: 0 7px 25px pink;
+    border: #222;
+    border-radius: 10%;
+    margin-top: 1%;
+    margin-left:10% ;
+    margin-right:15% ;
+    border-radius: 5px;
+    background-color: #ffffff ;
+  }
+ 
+.input-groupPA span{
+    color:#333;
+    font-weight: bold;
+  }
+  
+.overflow{
+    overflow: auto;
+  }
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 7%;
+}
+.tituloPA{
+    margin-top:5%;
+   
+    margin-bottom:5%;
+   
+    
+}
+.input-groupPA:hover, .input-groupPA:hover .hover1,.input-groupPA:hover .hover2{
+    background-color: #181818;
+    color: pink;
+    
+}
+.hover1, .hover2{
+    color:#181818;
+    text-align: center;
+}
