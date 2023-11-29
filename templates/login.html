@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Delta Goal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='imagens/delta_goal_logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
 
 </head>
 <body>
     <header class="header">
-        <img src="{{ url_for('static', filename='imagens/images.png') }}" alt="Logo" class="logo">
+        <img src="{{ url_for('static', filename='img/images.png') }}" alt="Logo" class="logo">
     </header>
     <div class="side-image left">
-        <img src="{{ url_for('static', filename='imagens/delta_goal_logo.png') }}" alt="Imagem Lateral Esquerda">
+        <img src="{{ url_for('static', filename='img/delta_goal_logo.png') }}" alt="Imagem Lateral Esquerda">
     </div>
     <div class="container">
         {% with messages = get_flashed_messages() %}
@@ -33,7 +33,7 @@
        <p class="message">Não possui uma conta? <a href="{{ url_for('cadastro') }}">Cadastre-se!</a></p>
     </div>
     <div class="side-image right">
-        <img src="{{ url_for('static', filename='imagens/delta_prabaixo.png') }}" alt="Imagem Lateral Direita">
+        <img src="{{ url_for('static', filename='img/delta_prabaixo.png') }}" alt="Imagem Lateral Direita">
     </div>
     
 </body>
