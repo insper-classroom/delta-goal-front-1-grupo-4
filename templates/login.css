@@ -9,7 +9,7 @@ body {
     flex-direction: column; /* Organiza o conteúdo em coluna */
     height: 100vh;
     position: relative;
-
+    overflow: hidden;  
 }
 .header {
     padding: 20px 0; /* Aumenta o padding superior para empurrar para baixo */
