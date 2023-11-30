@@ -117,6 +117,10 @@ def perfil():
     flash("Você precisa estar logado para acessar esta página.")
     return redirect(url_for('login'))
 
+@app.route("/partida")
+@login_required
+def partida():
+    return render_template('partida.html')
 
 @app.route('/ver_dados')
 def ver_dados():
