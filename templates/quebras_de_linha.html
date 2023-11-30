@@ -1,0 +1,52 @@
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Goal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quebras_de_linha.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
+</head>
+<body>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    async function drawChart() {
+
+        var dados = await fetch("http://localhost:5001/palmeiras_quebra_linha")
+        dados = await dados.json()
+        console.log(dados)
+        let keys = Object.keys(dados)
+      var data = google.visualization.arrayToDataTable([
+        ['Jogador', 'Rupturas'],
+        [String(keys[0]),    dados[keys[0]].qntd_rupturas],
+        [String(keys[1]),    dados[keys[1]].qntd_rupturas],
+        [String(keys[2]),    dados[keys[2]].qntd_rupturas],
+        [String(keys[3]),    dados[keys[3]].qntd_rupturas],
+        [String(keys[4]),    dados[keys[4]].qntd_rupturas],
+      ]);
+        console.log(dados[keys[0]].qntd_rupturas)
+      var options = {
+        title: 'Porcentagem de Rupturas por jogador'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      document.getElementById('info').innerHTML = dados[keys[0]].qntd_rupturas;
+
+      chart.draw(data, options);
+    }
+  </script>
+
+    <div id="piechart" style="width: 400px; height: 400px;"></div>
+
+    <div id="info"></div>
+
+    <h2></h2>   
+  </body>
+  </html>

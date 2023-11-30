@@ -95,7 +95,6 @@ def sucesso_redefinicao():
     return render_template('sucesso.html')
 
 @app.route("/home")
-@login_required
 def home():
     return render_template('inicial.html')
 
@@ -130,6 +129,10 @@ def ver_dados():
         return dados_serializaveis
     except Exception as e:
         return str(e)
+    
+@app.route("/quebras_de_linha")
+def quebras_de_linha():
+    return render_template("quebras_de_linha.html")
     
 if __name__ == '__main__':
     app.run(port=8080)
