@@ -12,18 +12,18 @@
   <div class="main-login">
     <div class="left-login">
       <img src="{{ url_for('static', filename='img/images.png') }}" alt="Logo" class="left-login-image">
-      <hr class="separator"> <!-- Linha separadora -->
+      <hr class="separator">
     </div>
     <div class="right-login">
       <div class="card-login">
         <h1>Cadastro</h1>
         <br>
-        <form method="post" action="{{ url_for('cadastro') }}">
-          <input type="text" placeholder="Nome" name="nome" value="{{ request.form['nome'] if 'nome' in request.form else '' }}" required>
-          <input type="email" placeholder="E-mail" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" value="{{ request.form['email'] if 'email' in request.form else '' }}" required>
-            <input type="password" placeholder="Senha" name="senha">
-            <input type="password" placeholder="Confirme a Senha" name="confirma_senha">
-            <button type="submit" class="button">Cadastrar</button>
+        <form id="registrationForm">
+          <input type="text" placeholder="Nome" name="nome" required>
+          <input type="email" placeholder="E-mail" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+          <input type="password" placeholder="Senha" name="senha" required>
+          <input type="password" placeholder="Confirme a Senha" name="confirma_senha" required>
+          <button type="button" onclick="registerUser()" class="button">Cadastrar</button>
         </form>
         <div class="error-message">
           {% if error_message %}
@@ -34,5 +34,33 @@
       </div>
     </div>
   </div>
+
+  <script>
+    async function registerUser() {
+      const form = document.getElementById('registrationForm');
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(Object.fromEntries(formData)),
+        });
+
+        if (response.ok) {
+          // Cadastro bem-sucedido
+          alert('Cadastro realizado com sucesso!');
+        } else {
+          const data = await response.json();
+          document.getElementById('errorMessage').innerText = data.error_message || 'Erro no cadastro.';
+        }
+      } catch (error) {
+        console.error('Erro na requisição:', error);
+        document.getElementById('errorMessage').innerText = 'Erro na requisição.';
+      }
+    }
+  </script>
 </body>
 </html>
