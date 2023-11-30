@@ -7,6 +7,7 @@ import re
 from bson import json_util
 
 app = Flask('Delta_Goal_Front')
+app.config['SECRET_KEY'] = 'dg123'
 
 def login_required(f):
     @wraps(f)
@@ -36,7 +37,7 @@ def sucesso_redefinicao():
     return render_template('sucesso.html')
 
 @app.route("/home")
-@login_required
+# @login_required
 def home():
     return render_template('inicial.html')
 
@@ -60,6 +61,11 @@ def perfil():
 @app.route('/ver_dados')
 def ver_dados():
     return 'Dados'
+
+@app.route("/partida")
+# @login_required
+def partida():
+    return render_template('partida.html')
     
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
