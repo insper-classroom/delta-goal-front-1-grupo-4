@@ -1,0 +1,163 @@
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Goal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/partida.css') }}">
+    <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+    <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
+</head>
+<body>
+    
+    
+    <div class="main-container">
+        <div class="left-container">
+            <h3>Visão Geral</h3>
+            <h4>Frequência nas sub-zonas</h4>
+            <div class="campo-futebol">
+                <div class="team-info left-team">
+                    <img src="{{ url_for('static', filename='img/palmeiras.png') }}" alt="Logotipo Time Esquerda">
+                    <span>SEP</span>
+                </div>
+                <div class="team-info right-team">
+                    <span>RBB</span>
+                    <img src="{{ url_for('static', filename='img/bragantino.png') }}" alt="Logotipo Time Direita">
+                </div>
+                <img src="static/img/campo.png" alt="Campo de Futebol">
+                <div class="zona" id="D2-2" >
+                    <p>D2.2</p>
+                </div>
+                <div class="zona" id="D2-1">
+                    <p>D2.1</p>
+                </div>
+                <div class="zona" id="D1-2">
+                    <p>D1.2</p>
+                </div>  
+                <div class="zona" id="D3">
+                    <p>D3</p>
+                </div>
+                <div class="zona" id="D1-1">
+                    <p>D1.1</p>
+                </div>
+                <div class="zona" id="E1-1">
+                    <p>E1.1</p>
+                </div>
+                <div class="zona" id="E3">
+                    <p>E3</p>
+                </div>
+                <div class="zona" id="E2-2">
+                    <p>E2.2</p>
+                </div>
+                <div class="zona" id="E2-1">
+                    <p>E2.1</p>
+                </div>
+                <div class="zona" id="E1-2">
+                    <p>E1.2</p>
+                </div>
+                
+                <div class="zona" id="E2-2-D"></div>
+                <div class="zona" id="E2-1-D"></div>
+                <div class="zona" id="E1-2-D"></div>  
+                <div class="zona" id="E3-D"></div>
+                <div class="zona" id="E1-1-D"></div>
+                <div class="zona" id="D1-1-D"></div>
+                <div class="zona" id="D3-D"></div>
+                <div class="zona" id="E2-2-D"></div>
+                <div class="zona" id="E2-1-D"></div>
+                <div class="zona" id="E1-2-D"></div>
+            </div>
+
+            <div class="listas-jogadores-container">
+                <div class="lista-jogadores-container sep">
+                    <h3>Destaques SEP</h3>
+                    <ul class="lista-jogadores">
+                        <li class="jogador-item">
+                            <img src="static/img/veiga.png" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Rafael Veiga</h3>
+                                <p>12</p>
+                            </div>
+                        </li>
+                        <li class="jogador-item">
+                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Gabriel Menino</h3>
+                                <p>13</p>
+                            </div>
+                        </li>
+                        <li class="jogador-item">
+                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Luan</h3>
+                                <p>18</p>
+                            </div>
+                        </li>
+                        <li class="jogador-item">
+                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Luiz Adriano</h3>
+                                <p>10</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
+
+                <div class="lista-jogadores-container rbb">
+                    <h3>Destaques RBB</h3>
+                    <ul class="lista-jogadores">
+                        <li class="jogador-item">
+                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Luiz Adriano</h3>
+                                <p>10</p>
+                            </div>
+                        </li>
+                        <li class="jogador-item">
+                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Luiz Adriano</h3>
+                                <p>10</p>
+                            </div>
+                        </li>
+                        <li class="jogador-item">
+                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <div class="jogador-info">
+                                <h3>Luiz Adriano</h3>
+                                <p>10</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="right-container">
+            <video id="myVideo" width="630" height="480" controls>
+                <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <br>
+            <div class="video-controls">
+                <button id="retroceder5" class="video-btn">◀ 5s</button>
+                <button id="retroceder1" class="video-btn">◀ 1s</button>
+                <button id="playPause" class="video-btn">▶/⏸</button>
+                <button id="avançar5" class="video-btn">5s ▶</button>
+                <button id="avançar1" class="video-btn">1s ▶</button>
+            </div>
+
+            <input type="number" id="startMinuteInput" placeholder="Minuto Inicial">
+            <input type="number" id="endMinuteInput" placeholder="Minuto Final">
+            <button onclick="setVideoTime()">Definir Intervalo de Tempo</button>
+            <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+        </div>
+    </div>
+  </body>
+  </html>
