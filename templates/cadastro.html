@@ -52,6 +52,7 @@
         if (response.ok) {
           // Cadastro bem-sucedido
           alert('Cadastro realizado com sucesso!');
+          window.location.href = '/login';
         } else {
           const data = await response.json();
           document.getElementById('errorMessage').innerText = data.error_message || 'Erro no cadastro.';
