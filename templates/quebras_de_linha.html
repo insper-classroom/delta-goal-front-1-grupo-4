@@ -20,17 +20,15 @@
 
         var dados = await fetch("http://localhost:5001/palmeiras_quebra_linha")
         dados = await dados.json()
-        console.log(dados)
         let keys = Object.keys(dados)
-      var data = google.visualization.arrayToDataTable([
-        ['Jogador', 'Rupturas'],
-        [String(keys[0]),    dados[keys[0]].qntd_rupturas],
-        [String(keys[1]),    dados[keys[1]].qntd_rupturas],
-        [String(keys[2]),    dados[keys[2]].qntd_rupturas],
-        [String(keys[3]),    dados[keys[3]].qntd_rupturas],
-        [String(keys[4]),    dados[keys[4]].qntd_rupturas],
-      ]);
-        console.log(dados[keys[0]].qntd_rupturas)
+
+        const list = [["Jogador", "Rupturas"]]
+
+        for (let i = 0; i < keys.length; i++) {
+            list.push([String(keys[i]),    dados[keys[i]].qntd_rupturas])
+}
+
+      var data = google.visualization.arrayToDataTable(list);
       var options = {
         title: 'Porcentagem de Rupturas por jogador'
       };
