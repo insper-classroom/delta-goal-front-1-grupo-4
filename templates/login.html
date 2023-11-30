@@ -9,6 +9,41 @@
 
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Obtenha os valores dos campos de entrada
+                const email = document.querySelector('input[name="email"]').value;
+                const password = document.querySelector('input[name="password"]').value;
+
+                // Construa o objeto JSON
+                const data = {
+                    email: email,
+                    password: password
+                };
+
+                // Faça a requisição usando fetch
+                fetch('http://127.0.0.1:5000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Lógica adicional após o login bem-sucedido
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    // Lógica adicional para lidar com erros
+                });
+            });
+        });
+    </script>
     <header class="header">
         <img src="{{ url_for('static', filename='img/images.png') }}" alt="Logo" class="logo">
     </header>
