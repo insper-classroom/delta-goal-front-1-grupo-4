@@ -5,6 +5,8 @@ from flask_mail import Mail, Message
 import os
 import re
 from bson import json_util
+from zonas import calculate_zone_percentages, data
+from cruzamento import extrair_informacoes_palmeiras
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://admin:admin@sprint-20232-grupo4.gcd9bsz.mongodb.net/delta_goal"
@@ -95,7 +97,6 @@ def sucesso_redefinicao():
     return render_template('sucesso.html')
 
 @app.route("/home")
-@login_required
 def home():
     return render_template('inicial.html')
 
@@ -117,10 +118,50 @@ def perfil():
     flash("Você precisa estar logado para acessar esta página.")
     return redirect(url_for('login'))
 
+@app.template_filter('convert_to_seconds')
+def convert_to_seconds(time_str):
+    hours, minutes, seconds = map(int, time_str.split(':'))
+    return hours * 3600 + minutes * 60 + seconds
+
+app.jinja_env.filters['convert_to_seconds'] = convert_to_seconds
+
+@app.template_filter('minus_five_seconds')
+def minus_five_seconds(seconds):
+    return max(seconds - 5, 0)
+
 @app.route("/partida")
-@login_required
 def partida():
-    return render_template('partida.html')
+
+    zone_percentages = calculate_zone_percentages(data)
+    zone_percentages_formatted = {zone: f"{percentage:.1f}%" for zone, percentage in zone_percentages.items()}
+    app.jinja_env.filters['convert_to_seconds'] = convert_to_seconds
+    app.jinja_env.filters['minus_five_seconds'] = minus_five_seconds
+    cruzamentos_palmeiras = extrair_informacoes_palmeiras(data)
+
+
+    destaques = {
+        'sep': [
+            {'nome': 'G Gomez', 'numero': 16, 'imagem': 'img/gustavo_gomez_palmeiras.jpg'},
+            {'nome': 'Luan', 'numero': 15, 'imagem': 'img/luan_palmeiras.jpeg'},
+            {'nome': 'Rony ', 'numero': 13, 'imagem': 'img/rony_palmeiras.jpg'},
+            {'nome': 'Fabinho', 'numero': 12, 'imagem': 'img/fabinho_palmeiras.jpg'},
+            {'nome': 'Artur', 'numero': 12, 'imagem': 'img/artur_palmeiras.jpg'},
+          
+
+            # Adicione mais jogadores conforme necessário
+        ],
+        'rbb': [
+            {'nome': 'Sasha', 'numero': 9, 'imagem': 'img/Sasha_bragantino.png'},
+            {'nome': 'E. Santos ', 'numero': 7, 'imagem': 'img/santos_bragantino.png'},
+            {'nome': 'B. Goncalves	', 'numero': 6, 'imagem': 'img/bruno_brangantino.png'},
+            {'nome': 'Natan', 'numero': 6, 'imagem': 'img/natan_bragantino.png'},
+            {'nome': 'Juninho Capixaba	', 'numero': 5, 'imagem': 'img/juninho_bragantino.png'},
+
+            # Adicione mais jogadores conforme necessário
+        ]
+    }
+    return render_template('partida.html', destaques=destaques, porcentagens=zone_percentages_formatted,cruzamentos=cruzamentos_palmeiras)
+
 
 @app.route('/ver_dados')
 def ver_dados():
@@ -133,3 +174,4 @@ def ver_dados():
     
 if __name__ == '__main__':
     app.run(port=8080)
+

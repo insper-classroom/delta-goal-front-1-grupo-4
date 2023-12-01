@@ -4,6 +4,8 @@ body {
     padding: 0;
     background-color: #f7f7f7;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 .header {
     background-color: #181818;
@@ -12,6 +14,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* ou absolute, dependendo do layout */
+    z-index: 1000;
+    flex: 0 0 auto;
 }
 .header a {
     color: #fff;
@@ -120,12 +125,40 @@ body {
     cursor: pointer;
     border: 2px solid #d032ce; /* Cor da borda como na imagem */
     background-color: rgba(109, 1, 111, 0); /* Cor inicial transparente */
+    font-size: small;
 }
 
 .zona:hover {
     background-color: rgba(109, 1, 111, 0.5); /* Cor mais opaca ao passar o mouse */
+    
 }
 
+.nome-zona, .porcentagem-zona {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    cursor: default;
+}
+
+.porcentagem-zona {
+    opacity: 0;
+}
+
+.zona:hover .nome-zona {
+    opacity: 0;
+}
+
+.zona:hover .porcentagem-zona {
+    opacity: 1;
+}
+
+
+/* lado esquerdo */
 #D2-2 {
     top: 3%;
     left: 4.2%;
@@ -195,12 +228,85 @@ body {
     height: 18.4%;
 }
 
+/* lado direita */
+
+#E2-2-D{
+    top: 3%;
+    left: 88.4%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#E2-1-D{
+    top: 3%;
+    left: 81.1%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#E1-2-D{
+    top: 3%;
+    left: 73.9%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#E3-D{
+    top: 22%;
+    left: 81%;
+    width: 14%;
+    height: 14.5%;
+}
+
+#E1-1-D{
+    top: 22%;
+    left: 73.9%;
+    width: 6.9%;
+    height: 27%;
+}
+
+#D1-1-D{
+    top: 50%;
+    left: 73.9%;
+    width: 6.9%;
+    height: 27%;
+}
+
+#D3-D{
+    top: 62.5%;
+    left: 81%;
+    width: 14%;
+    height: 14.5%;
+}   
+
+#D2-2-D{
+    top: 77.5%;
+    left: 88.4%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#D2-1-D{
+    top: 77.5%;
+    left: 81.1%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#D1-2-D{
+    top: 77.5%;
+    left: 73.9%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
 
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex: 1 0 auto;
 }
 
 .left-container,
@@ -231,7 +337,6 @@ body {
     margin: 0 20px; /* Espaço dos lados da linha */
 
 }
-
 
 .team-info {
     position: absolute;
@@ -316,3 +421,33 @@ p {
     height: auto; /* Altura automática para se ajustar ao conteúdo */
     align-self: stretch; /* Estica a linha para a altura dos contêineres adjacentes */
 }
+
+.scroll-list-container {
+    height: 200px; /* ou a altura que você desejar */
+    overflow-y: auto;
+    display: flex;
+    width: 100%;
+    align-self: stretch;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.scroll-list-container ul {
+    padding: 0;
+    list-style: none;
+}
+
+.scroll-list-container li {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    width: 705px; /* Largura da linha */
+}
+
+.scroll-list-container li:hover {
+    background-color: #a1ea92;
+    text-align: center;
+}
+
+
+
