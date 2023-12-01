@@ -5,6 +5,8 @@ from flask_mail import Mail, Message
 import os
 import re
 from bson import json_util
+from zonas import calculate_zone_percentages, data
+from cruzamento import extrair_informacoes_palmeiras
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://admin:admin@sprint-20232-grupo4.gcd9bsz.mongodb.net/delta_goal"
@@ -117,10 +119,51 @@ def perfil():
     flash("Você precisa estar logado para acessar esta página.")
     return redirect(url_for('login'))
 
+@app.template_filter('convert_to_seconds')
+def convert_to_seconds(time_str):
+    hours, minutes, seconds = map(int, time_str.split(':'))
+    return hours * 3600 + minutes * 60 + seconds
+
+app.jinja_env.filters['convert_to_seconds'] = convert_to_seconds
+
+@app.template_filter('minus_five_seconds')
+def minus_five_seconds(seconds):
+    return max(seconds - 5, 0)
+
 @app.route("/partida")
 @login_required
 def partida():
-    return render_template('partida.html')
+
+    zone_percentages = calculate_zone_percentages(data)
+    zone_percentages_formatted = {zone: f"{percentage:.1f}%" for zone, percentage in zone_percentages.items()}
+    app.jinja_env.filters['convert_to_seconds'] = convert_to_seconds
+    app.jinja_env.filters['minus_five_seconds'] = minus_five_seconds
+    cruzamentos_palmeiras = extrair_informacoes_palmeiras(data)
+
+
+    destaques = {
+        'sep': [
+            {'nome': 'G Gomes', 'numero': 16, 'imagem': 'static/img/campo.png'},
+            {'nome': 'Luan', 'numero': 15, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'Rony ', 'numero': 13, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'Fabinho', 'numero': 12, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'Arthur', 'numero': 12, 'imagem': 'static/img/bragantino.png'},
+          
+
+            # Adicione mais jogadores conforme necessário
+        ],
+        'rbb': [
+            {'nome': 'Sasha', 'numero': 9, 'imagem': 'static/img/gabriel-menino.jpg'},
+            {'nome': 'E. Santos ', 'numero': 7, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'B. Goncalves	', 'numero': 6, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'Natan', 'numero': 6, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'Juninho Capixaba	', 'numero': 5, 'imagem': 'static/img/veiga.png'},
+
+            # Adicione mais jogadores conforme necessário
+        ]
+    }
+    return render_template('partida.html', destaques=destaques, porcentagens=zone_percentages_formatted,cruzamentos=cruzamentos_palmeiras)
+
 
 @app.route('/ver_dados')
 def ver_dados():
@@ -133,3 +176,4 @@ def ver_dados():
     
 if __name__ == '__main__':
     app.run(port=8080)
+
