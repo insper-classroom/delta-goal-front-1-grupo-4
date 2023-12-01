@@ -28,81 +28,83 @@
                     <img src="{{ url_for('static', filename='img/bragantino.png') }}" alt="Logotipo Time Direita">
                 </div>
                 <img src="static/img/campo.png" alt="Campo de Futebol">
-                <div class="zona" id="D2-2" >
-                    <p>D2.2</p>
+
+                <div class="zona" id="D2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D2-2'.replace('-', '.'), '0.0') }}">
+                    <p class="info">D2.2</p>
                 </div>
-                <div class="zona" id="D2-1">
-                    <p>D2.1</p>
+                <div class="zona" id="D2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D2-1'.replace('-', '.'), '0.0') }}">
+                    <p class="info">D2.1</p>
                 </div>
-                <div class="zona" id="D1-2">
-                    <p>D1.2</p>
+                <div class="zona" id="D1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D1-2'.replace('-', '.'), '0.0') }}">
+                    <p class="info">D1.2</p>
                 </div>  
-                <div class="zona" id="D3">
-                    <p>D3</p>
+                <div class="zona" id="D3" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D3'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D3</p>
                 </div>
-                <div class="zona" id="D1-1">
-                    <p>D1.1</p>
+                <div class="zona" id="D1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage= "{{ porcentagens.get('D1-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D1.1</p>
                 </div>
-                <div class="zona" id="E1-1">
-                    <p>E1.1</p>
+                <div class="zona" id="E1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('E1-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E1.1</p>
                 </div>
-                <div class="zona" id="E3">
-                    <p>E3</p>
+                <div class="zona" id="E3" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('E3'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E3</p>
                 </div>
-                <div class="zona" id="E2-2">
-                    <p>E2.2</p>
+                <div class="zona" id="E2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E2-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E2.2</p>
                 </div>
-                <div class="zona" id="E2-1">
-                    <p>E2.1</p>
+                <div class="zona" id="E2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E2-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E2.1</p>
                 </div>
-                <div class="zona" id="E1-2">
-                    <p>E1.2</p>
+                <div class="zona" id="E1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E1-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E1.2</p>
                 </div>
                 
-                <div class="zona" id="E2-2-D"></div>
-                <div class="zona" id="E2-1-D"></div>
-                <div class="zona" id="E1-2-D"></div>  
-                <div class="zona" id="E3-D"></div>
-                <div class="zona" id="E1-1-D"></div>
-                <div class="zona" id="D1-1-D"></div>
-                <div class="zona" id="D3-D"></div>
-                <div class="zona" id="E2-2-D"></div>
-                <div class="zona" id="E2-1-D"></div>
-                <div class="zona" id="E1-2-D"></div>
+                <div class="zona" id="E2-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">E2.2</p>
+                </div>
+                <div class="zona" id="E2-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">E2.1</p>
+                </div>
+                <div class="zona" id="E1-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">E1.2</p>
+                </div>  
+                <div class="zona" id="E3-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">E3</p>
+                </div>
+                <div class="zona" id="E1-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">E1.1</p>
+                </div>
+                <div class="zona" id="D1-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">D1.1</p>
+                </div>
+                <div class="zona" id="D3-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">D3</p>
+                </div>
+                <div class="zona" id="D2-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">D2.2</p>
+                </div>
+                <div class="zona" id="D2-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">D2.1</p>
+                </div>
+                <div class="zona" id="D1-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="30%">
+                    <p class="info">D1.2</p>
+                </div>
             </div>
 
             <div class="listas-jogadores-container">
                 <div class="lista-jogadores-container sep">
                     <h3>Destaques SEP</h3>
                     <ul class="lista-jogadores">
+                        {% for jogador in destaques.sep %}
                         <li class="jogador-item">
-                            <img src="static/img/veiga.png" alt="Nome do Jogador">
+                            <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}">
                             <div class="jogador-info">
-                                <h3>Rafael Veiga</h3>
-                                <p>12</p>
+                                <h3>{{ jogador.nome }}</h3>
+                                <p>{{ jogador.numero }}</p>
                             </div>
                         </li>
-                        <li class="jogador-item">
-                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
-                            <div class="jogador-info">
-                                <h3>Gabriel Menino</h3>
-                                <p>13</p>
-                            </div>
-                        </li>
-                        <li class="jogador-item">
-                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
-                            <div class="jogador-info">
-                                <h3>Luan</h3>
-                                <p>18</p>
-                            </div>
-                        </li>
-                        <li class="jogador-item">
-                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
-                            <div class="jogador-info">
-                                <h3>Luiz Adriano</h3>
-                                <p>10</p>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
 
@@ -111,27 +113,15 @@
                 <div class="lista-jogadores-container rbb">
                     <h3>Destaques RBB</h3>
                     <ul class="lista-jogadores">
+                        {% for jogador in destaques.rbb %}
                         <li class="jogador-item">
-                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
+                            <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}">
                             <div class="jogador-info">
-                                <h3>Luiz Adriano</h3>
-                                <p>10</p>
+                                <h3>{{ jogador.nome }}</h3>
+                                <p>{{ jogador.numero }}</p>
                             </div>
                         </li>
-                        <li class="jogador-item">
-                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
-                            <div class="jogador-info">
-                                <h3>Luiz Adriano</h3>
-                                <p>10</p>
-                            </div>
-                        </li>
-                        <li class="jogador-item">
-                            <img src="static/img/gabriel-menino.jpg" alt="Nome do Jogador">
-                            <div class="jogador-info">
-                                <h3>Luiz Adriano</h3>
-                                <p>10</p>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -139,25 +129,45 @@
 
         <div class="divider"></div>
 
-        <div class="right-container">
-            <video id="myVideo" width="630" height="480" controls>
-                <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos HTML5.
-            </video>
-            <br>
-            <div class="video-controls">
-                <button id="retroceder5" class="video-btn">◀ 5s</button>
-                <button id="retroceder1" class="video-btn">◀ 1s</button>
-                <button id="playPause" class="video-btn">▶/⏸</button>
-                <button id="avançar5" class="video-btn">5s ▶</button>
-                <button id="avançar1" class="video-btn">1s ▶</button>
-            </div>
+            <div class="right-container">
+                    <h2>Lances</h2>
+                    <h3>Lista de cruzamento</h3>
+                    <p>Selecione um lance para visualizar</p>
+                <div class="scroll-list-container">
+                    <ul id="cruzamentos-list">
+                        {% for cruzamento in cruzamentos %}
+                        <li onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', {{ loop.index }})">
+                            Cruzamento #{{ loop.index }} - {{ cruzamento['instante_inicial'] }} - {{ cruzamento['desfecho'] }} - Zona {{ cruzamento['zona'] }}
+                        </li>                
+                        {% endfor %}
+                    </ul>
+                </div>
+                <video id="myVideo" width="630" height="480" controls>
+                    <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+                <br>
+                <div class="video-controls">
+                    <button id="retroceder5" class="video-btn" onclick="retroceder(5)">◀ 5s</button>
+                    <button id="retroceder1" class="video-btn" onclick="retroceder(1)">◀ 1s</button>
+                    <button id="playPause" class="video-btn" onclick="playPause()">▶/⏸</button>
+                    <button id="avançar5" class="video-btn" onclick="avançar(5)">5s ▶</button>
+                    <button id="avançar1" class="video-btn" onclick="avançar(1)">1s ▶</button>
+                </div>
 
-            <input type="number" id="startMinuteInput" placeholder="Minuto Inicial">
-            <input type="number" id="endMinuteInput" placeholder="Minuto Final">
-            <button onclick="setVideoTime()">Definir Intervalo de Tempo</button>
-            <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+                <div class="player-list-container">
+                    <h3>Jogadores Atacando</h3>
+                    <ul id="jogadores-atacando-list"></ul>
+                
+                    <h3>Jogadores Defendendo</h3>
+                    <ul id="jogadores-defendendo-list"></ul>
+                </div>
+                
+
+                <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+                
+            </div>
         </div>
-    </div>
   </body>
   </html>
+
