@@ -97,7 +97,6 @@ def sucesso_redefinicao():
     return render_template('sucesso.html')
 
 @app.route("/home")
-@login_required
 def home():
     return render_template('inicial.html')
 
@@ -131,7 +130,6 @@ def minus_five_seconds(seconds):
     return max(seconds - 5, 0)
 
 @app.route("/partida")
-@login_required
 def partida():
 
     zone_percentages = calculate_zone_percentages(data)
@@ -143,21 +141,21 @@ def partida():
 
     destaques = {
         'sep': [
-            {'nome': 'G Gomes', 'numero': 16, 'imagem': 'static/img/campo.png'},
-            {'nome': 'Luan', 'numero': 15, 'imagem': 'static/img/veiga.png'},
-            {'nome': 'Rony ', 'numero': 13, 'imagem': 'static/img/veiga.png'},
-            {'nome': 'Fabinho', 'numero': 12, 'imagem': 'static/img/veiga.png'},
-            {'nome': 'Arthur', 'numero': 12, 'imagem': 'static/img/bragantino.png'},
+            {'nome': 'G Gomez', 'numero': 16, 'imagem': 'img/gustavo_gomez_palmeiras.jpg'},
+            {'nome': 'Luan', 'numero': 15, 'imagem': 'img/luan_palmeiras.jpeg'},
+            {'nome': 'Rony ', 'numero': 13, 'imagem': 'img/rony_palmeiras.jpg'},
+            {'nome': 'Fabinho', 'numero': 12, 'imagem': 'img/fabinho_palmeiras.jpg'},
+            {'nome': 'Artur', 'numero': 12, 'imagem': 'img/artur_palmeiras.jpg'},
           
 
             # Adicione mais jogadores conforme necessário
         ],
         'rbb': [
-            {'nome': 'Sasha', 'numero': 9, 'imagem': 'static/img/gabriel-menino.jpg'},
-            {'nome': 'E. Santos ', 'numero': 7, 'imagem': 'static/img/veiga.png'},
-            {'nome': 'B. Goncalves	', 'numero': 6, 'imagem': 'static/img/veiga.png'},
-            {'nome': 'Natan', 'numero': 6, 'imagem': 'static/img/veiga.png'},
-            {'nome': 'Juninho Capixaba	', 'numero': 5, 'imagem': 'static/img/veiga.png'},
+            {'nome': 'Sasha', 'numero': 9, 'imagem': 'img/Sasha_bragantino.png'},
+            {'nome': 'E. Santos ', 'numero': 7, 'imagem': 'img/santos_bragantino.png'},
+            {'nome': 'B. Goncalves	', 'numero': 6, 'imagem': 'img/bruno_brangantino.png'},
+            {'nome': 'Natan', 'numero': 6, 'imagem': 'img/natan_bragantino.png'},
+            {'nome': 'Juninho Capixaba	', 'numero': 5, 'imagem': 'img/juninho_bragantino.png'},
 
             # Adicione mais jogadores conforme necessário
         ]

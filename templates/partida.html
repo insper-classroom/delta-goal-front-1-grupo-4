@@ -96,6 +96,7 @@
                 <div class="lista-jogadores-container sep">
                     <h3>Destaques SEP</h3>
                     <ul class="lista-jogadores">
+                        <!-- jogadores em destaques -->
                         {% for jogador in destaques.sep %}
                         <li class="jogador-item">
                             <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}">
