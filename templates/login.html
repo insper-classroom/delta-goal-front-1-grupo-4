@@ -52,6 +52,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + sessionStorage.session  
                     },
                     body: JSON.stringify(data),
                 })
@@ -60,6 +61,7 @@
                 if (!responseData.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 } else if (responseData.ok) {
+                    sessionStorage.setItem('session',responseData.session)
                     window.location.href = '/home';
                     
                 }
