@@ -15,36 +15,89 @@
   <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-
+    
+    
     async function drawChart() {
-
-        var dados = await fetch("http://localhost:5001/palmeiras_quebra_linha")
-        dados = await dados.json()
+        
+        var response = await fetch("http://localhost:5001/palmeiras_desfechos")
+        response = await response.json()
+        let dados = response
+        let keys = Object.keys(dados)
+        const list = [["Desfecho", "Rupturas"]]
+        
+        for (let i = 0; i < keys.length; i++) {
+            list.push([String(keys[i]),    dados[keys[i]]])
+        }
+        var data = google.visualization.arrayToDataTable(list);
+        var options = {
+            title: 'Porcentagem de Rupturas por jogador'
+        };
+        
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        
+        
+        chart.draw(data, options);
+        
+    }
+    
+    window.onload = drawChart()
+    
+    async function jogadores() {
+        var response = await fetch("http://localhost:5001/palmeiras_quebra_linha")
+        response = await response.json()
+        let dados = response
+        console.log(Object.keys(dados))
         let keys = Object.keys(dados)
 
-        const list = [["Jogador", "Rupturas"]]
+        let jogadores = document.getElementById("jogadores")
 
-        for (let i = 0; i < keys.length; i++) {
-            list.push([String(keys[i]),    dados[keys[i]].qntd_rupturas])
-}
-
-      var data = google.visualization.arrayToDataTable(list);
-      var options = {
-        title: 'Porcentagem de Rupturas por jogador'
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-      document.getElementById('info').innerHTML = dados[keys[0]].qntd_rupturas;
-
-      chart.draw(data, options);
+        for (i = 0; i < keys.length; ++i) {
+            let li = document.createElement('li');
+            li.innerText = keys[i];
+            jogadores.appendChild(li);
     }
+    }
+
+    window.onload = jogadores()
   </script>
 
-    <div id="piechart" style="width: 400px; height: 400px;"></div>
+<div class="main-container">
+    <div class="left-container">
+        
+        <div class="listas-jogadores-container">
+            <div class="lista-jogadores-container sep">
+                <h3>Destaques SEP</h3>
+                <ul id="jogadores"></ul>
+            </div>
+            
+            <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
+            <div id="piechart" style="width: 400px; height: 400px; margin: 50px; color:black;"></div>
 
-    <div id="info"></div>
+                
+            </div>
+        </div>
 
-    <h2></h2>   
+        <div class="divider"></div>
+
+        <div class="right-container">
+            <video id="myVideo" width="630" height="480" controls>
+                <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <br>
+            <div class="video-controls">
+                <button id="retroceder5" class="video-btn">◀ 5s</button>
+                <button id="retroceder1" class="video-btn">◀ 1s</button>
+                <button id="playPause" class="video-btn">▶/⏸</button>
+                <button id="avançar5" class="video-btn">5s ▶</button>
+                <button id="avançar1" class="video-btn">1s ▶</button>
+            </div>
+
+            <input type="number" id="startMinuteInput" placeholder="Minuto Inicial">
+            <input type="number" id="endMinuteInput" placeholder="Minuto Final">
+            <button onclick="setVideoTime()">Definir Intervalo de Tempo</button>
+            <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+        </div>
+    </div>
   </body>
   </html>
