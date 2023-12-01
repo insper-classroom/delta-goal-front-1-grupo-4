@@ -8,5 +8,26 @@
     <a href="#">Time</a>
     <a href="{{ url_for('partida') }}">Partida</a>
     <a href="{{ url_for('perfil') }}">Perfil</a>
-    <a href="{{ url_for('login') }}">Sair</a>
+    <a href="#" onclick="sessionLogout()">Sair</a>
+    <script>
+    async function sessionLogout() {
+        let response = await fetch('http://127.0.0.1:5000/logout', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + sessionStorage.session  
+                        },
+                        body: {},
+                    })
+                    
+                    let responseData = await response.json();
+
+                    if (!responseData.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    } else if (responseData.ok) {
+                        sessionStorage.clear();
+                        window.location.href = '/login';
+                    }
+    }
+    </script>
 </div>
