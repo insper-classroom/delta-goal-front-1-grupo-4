@@ -132,8 +132,10 @@ def minus_five_seconds(seconds):
 @app.route("/partida")
 def partida():
 
-    zone_percentages = calculate_zone_percentages(data)
-    zone_percentages_formatted = {zone: f"{percentage:.1f}%" for zone, percentage in zone_percentages.items()}
+    zone_percentages = calculate_zone_percentages(data,'1')
+    zone_percentages_formatted = {zone: f"{percentage}%" for zone, percentage in zone_percentages.items()}
+    zone_percentages_bragan= calculate_zone_percentages(data,'5')
+    zone_percentages_formatted_bragan = {zone1: f"{percentage1}%" for zone1, percentage1 in zone_percentages_bragan.items()}
     app.jinja_env.filters['convert_to_seconds'] = convert_to_seconds
     app.jinja_env.filters['minus_five_seconds'] = minus_five_seconds
     cruzamentos_palmeiras = extrair_informacoes_palmeiras(data)
@@ -160,7 +162,7 @@ def partida():
             # Adicione mais jogadores conforme necessário
         ]
     }
-    return render_template('partida.html', destaques=destaques, porcentagens=zone_percentages_formatted,cruzamentos=cruzamentos_palmeiras)
+    return render_template('partida.html', destaques=destaques, porcentagens=zone_percentages_formatted,porcentagens_bragan=zone_percentages_formatted_bragan,cruzamentos=cruzamentos_palmeiras)
 
 
 @app.route('/ver_dados')
