@@ -1,0 +1,318 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+.header {
+    background-color: #181818;
+    color: #fff;
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+.header a:hover {
+    text-decoration: underline;
+    text-decoration-color: #E6007E;
+}
+
+.header a:not(:first-child):not(:nth-child(2))::before {
+    content: "|";
+    margin-left: 15px;
+    margin-right: 30px;
+  }
+
+.time {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.welcome-message {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.logo {
+    position: absolute;
+    top: 0px; /* Ajuste a distância do topo conforme necessário */
+    left: 30px; /* Ajuste a distância da esquerda conforme necessário */
+    }
+
+
+    
+    button, input[type="number"] {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #f2f2f2;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #e2e2e2;
+    }
+    
+    input[type="number"] {
+        background-color: #fff;
+        color: black;
+    }
+  
+    .video-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px; /* Ajuste conforme necessário */
+    }
+    
+    .video-btn {
+        padding: 5px 10px;
+        margin: 0 5px;
+        border: none;
+        background-color: #f2f2f2;
+        color: #333; 
+        font-size: 16px; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        transition: background-color 0.3s; 
+    }
+    
+    .video-btn:hover {
+        background-color: #e2e2e2; 
+    }
+    
+    .video-btn#playPause {
+        font-weight: bold; 
+    }
+
+
+ .campo-container {
+    display: flex;
+    justify-content: center; /* Centraliza o campo de futebol horizontalmente */
+    align-items: center; /* Centraliza o campo de futebol verticalmente */
+    height: 100vh; /* Altura total da viewport */
+}
+
+.campo-futebol {
+    position: relative;
+    width: 640px; /* Largura da sua imagem */
+    height: 360px; /* Altura da sua imagem */
+    margin: auto; /* Isso também ajudará a centralizar o campo se não estiver usando flexbox */
+}
+
+.campo-futebol img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove espaços em branco abaixo da imagem */
+}
+
+.zona {
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid #d032ce; /* Cor da borda como na imagem */
+    background-color: rgba(109, 1, 111, 0); /* Cor inicial transparente */
+}
+
+.zona:hover {
+    background-color: rgba(109, 1, 111, 0.5); /* Cor mais opaca ao passar o mouse */
+}
+
+#D2-2 {
+    top: 3%;
+    left: 4.2%;
+    width: 6.7%;
+    height: 18.6%;
+}
+
+#D2-1{
+    top: 3%;
+    left: 11.5%;
+    width: 6.7%;
+    height: 18.6%;
+}
+
+#D1-2 {
+    top: 3%;
+    left: 18.7%;
+    width: 6.7%;
+    height: 18.6%;
+}
+
+#D3 {
+    top: 22%;
+    left: 4.2%;
+    width: 14%;
+    height: 14.5%;
+}
+#D1-1 {
+    top: 22%;
+    left: 18.6%;
+    width: 6.9%;
+    height: 27%;
+}
+
+#E1-1 {
+    top: 50%;
+    left: 18.6%;
+    width: 6.9%;
+    height: 27%;
+}
+
+#E3 {
+    top: 62.5%;
+    left: 4.2%;
+    width: 14%;
+    height: 14.5%;
+}
+
+#E2-2 {
+    top: 77.5%;
+    left: 4.2%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#E2-1 {
+    top: 77.5%;
+    left: 11.5%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+#E1-2 {
+    top: 77.5%;
+    left: 18.7%;
+    width: 6.7%;
+    height: 18.4%;
+}
+
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.left-container,
+.right-container {
+    flex: 1; /* Ambos tomarão 50% do espaço disponível */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.campo-futebol, .video-container {
+    max-height: 100%; 
+    display: block; /* Remove espaços em branco abaixo da imagem */
+
+}
+
+.campo-futebol img {
+    max-height: 100%;
+}
+
+
+.divider {
+    background-color: #879093; /* Cor da linha */
+    width: 2px; /* Largura da linha */
+    height: 100%; /* Altura para preencher o contêiner pai */
+    margin: 0 20px; /* Espaço dos lados da linha */
+
+}
+
+
+.team-info {
+    position: absolute;
+    top: -50px; /* Ajuste a altura conforme necessário */
+    display: flex;
+    align-items: center;
+    color: #879093; /* ou a cor que desejar para o texto */
+    font-weight: bold;
+    font-size: 1.5em; /* Ajuste o tamanho do texto conforme necessário */
+}
+
+.team-info img {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin-right: 10px;
+}
+
+.left-team {
+    left: 10px; /* Ajuste conforme necessário para alinhar com o lado esquerdo do campo */
+}
+
+.right-team {
+    right: 10px; /* Ajuste conforme necessário para alinhar com o lado direito do campo */
+}
+
+p {
+    color: white;
+    justify-content: center;
+}
+
+.lista-jogadores-container {
+    max-height: 150px; /* Ajuste conforme necessário */
+    overflow-y: auto; /* Ativa a rolagem vertical se o conteúdo exceder a altura máxima */
+    margin: 0 10px; /* Espaçamento acima e abaixo do contêiner */
+    margin: 50px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.lista-jogadores {
+    list-style: none; /* Remove estilos padrão da lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+}
+
+.jogador-item {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo do item */
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+.jogador-item img {
+    width: 50px; /* Largura da foto do jogador */
+    height: 50px; /* Altura da foto do jogador */
+    border-radius: 50%; /* Torna a foto circular */
+    margin-right: 10px; /* Espaçamento entre a foto e as informações do jogador */
+}
+
+.jogador-info h3 {
+    font-size: 1em; /* Tamanho do nome do jogador */
+    margin: 0; /* Remove a margem padrão */
+}
+
+.jogador-info p {
+    font-size: 0.8em; /* Tamanho da posição do jogador */
+    color: #666; /* Cor do texto da posição */
+    margin: 0; /* Remove a margem padrão */
+}
+
+
+.listas-jogadores-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: flex-start; /* Alinha os itens ao topo */
+}
+
+.list-divider {
+    width: 1px; /* Largura da linha */
+    background-color: #dcdcdc; /* Cor da linha, escolha uma cor que combine com seu design */
+    margin: 0 20px; /* Espaçamento horizontal da linha */
+    height: auto; /* Altura automática para se ajustar ao conteúdo */
+    align-self: stretch; /* Estica a linha para a altura dos contêineres adjacentes */
+}

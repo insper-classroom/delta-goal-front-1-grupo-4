@@ -174,6 +174,10 @@ def ver_dados():
     except Exception as e:
         return str(e)
     
+@app.route("/quebras_de_linha")
+def quebras_de_linha():
+    return render_template("quebras_de_linha.html")
+    
 if __name__ == '__main__':
     app.run(port=8080)
 
