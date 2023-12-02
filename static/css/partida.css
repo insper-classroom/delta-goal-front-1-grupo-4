@@ -393,6 +393,9 @@ p {
     height: 50px; /* Altura da foto do jogador */
     border-radius: 50%; /* Torna a foto circular */
     margin-right: 10px; /* Espaçamento entre a foto e as informações do jogador */
+    object-fit: cover;
+
+
 }
 
 .jogador-info h3 {
@@ -449,5 +452,38 @@ p {
     text-align: center;
 }
 
+/* Ataque e defesa */
+.player-list-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.jogadores-atacando, .jogadores-defendendo {
+    flex: 1; /* Cada elemento ocupa metade do espaço */
+    max-height: 300px; /* Altura máxima antes de mostrar a rolagem */
+    overflow-y: auto; /* Mostra a barra de rolagem vertical se necessário */
+    margin: 0 10px; 
+    
+
+}
+
+.list-divider {
+    width: 1px; /* Largura da linha divisória */
+    background-color: #dcdcdc; /* Cor da linha */
+    margin: 0 20px; /* Espaçamento horizontal da linha */
+    align-self: stretch; /* Ajusta a altura conforme os elementos adjacentes */
+    height: auto; /* Altura automática para se ajustar ao conteúdo */
+
+}
+
+/* Adicionais para as listas UL dentro dos contêineres */
+#jogadores-atacando-list, #jogadores-defendendo-list {
+    list-style: none; /* Remove marcadores padrão da lista */
+    padding: 0; /* Remove preenchimento padrão */
+    margin: 0; /* Remove margens padrão */
+    cursor: pointer;
+}
 
 

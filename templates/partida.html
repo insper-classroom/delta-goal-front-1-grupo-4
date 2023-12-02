@@ -133,11 +133,11 @@
             <div class="right-container">
                     <h2>Lances</h2>
                     <h3>Lista de cruzamento</h3>
-                    <p>Selecione um lance para visualizar</p>
+                    <h4>Selecione um lance para visualizar</p>
                 <div class="scroll-list-container">
                     <ul id="cruzamentos-list">
                         {% for cruzamento in cruzamentos %}
-                        <li onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', {{ loop.index }})">
+                        <li onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', '{{ cruzamento['jogadores_envolvidos'] }}', '{{ cruzamento['jogadores_defendendo'] }}')">
                             Cruzamento #{{ loop.index }} - {{ cruzamento['instante_inicial'] }} - {{ cruzamento['desfecho'] }} - Zona {{ cruzamento['zona'] }}
                         </li>                
                         {% endfor %}
@@ -157,14 +157,20 @@
                 </div>
 
                 <div class="player-list-container">
-                    <h3>Jogadores Atacando</h3>
-                    <ul id="jogadores-atacando-list"></ul>
+                    <div class="jogadores-atacando">
+                        <h3>Jogadores Atacando</h3>
+                        <ul id="jogadores-atacando-list"></ul>
+                    </div>
+                    
+                    <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
                 
-                    <h3>Jogadores Defendendo</h3>
-                    <ul id="jogadores-defendendo-list"></ul>
+                    <div class="jogadores-defendendo">
+                        <h3>Jogadores Defendendo</h3>
+                        <ul id="jogadores-defendendo-list"></ul>
+                    </div>
                 </div>
-                
-
+                <br><br>
+        
                 <script src="{{ url_for('static', filename='js/video.js') }}"></script>
                 
             </div>
