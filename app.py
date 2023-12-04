@@ -5,7 +5,7 @@ from flask_mail import Mail, Message
 import os
 import re
 from bson import json_util
-from zonas import calculate_zone_percentages, data
+from zonas import calculate_zone_percentages, data, destaque_jogadores
 from cruzamento import extrair_informacoes_palmeiras
 
 app = Flask(__name__)
@@ -140,25 +140,8 @@ def partida():
 
 
     destaques = {
-        'sep': [
-            {'nome': 'G Gomez', 'numero': 16, 'imagem': 'img/gustavo_gomez_palmeiras.jpg'},
-            {'nome': 'Luan', 'numero': 15, 'imagem': 'img/luan_palmeiras.jpeg'},
-            {'nome': 'Rony ', 'numero': 13, 'imagem': 'img/rony_palmeiras.jpg'},
-            {'nome': 'Fabinho', 'numero': 12, 'imagem': 'img/fabinho_palmeiras.jpg'},
-            {'nome': 'Artur', 'numero': 12, 'imagem': 'img/artur_palmeiras.jpg'},
-          
-
-            # Adicione mais jogadores conforme necessário
-        ],
-        'rbb': [
-            {'nome': 'Sasha', 'numero': 9, 'imagem': 'img/Sasha_bragantino.png'},
-            {'nome': 'E. Santos ', 'numero': 7, 'imagem': 'img/santos_bragantino.png'},
-            {'nome': 'B. Goncalves	', 'numero': 6, 'imagem': 'img/bruno_brangantino.png'},
-            {'nome': 'Natan', 'numero': 6, 'imagem': 'img/natan_bragantino.png'},
-            {'nome': 'Juninho Capixaba	', 'numero': 5, 'imagem': 'img/juninho_bragantino.png'},
-
-            # Adicione mais jogadores conforme necessário
-        ]
+        'sep': destaque_jogadores(data,'1'),
+        'rbb': destaque_jogadores(data,'5')
     }
     return render_template('partida.html', destaques=destaques, porcentagens=zone_percentages,porcentagens_bragan=zone_percentages_bragan,cruzamentos=cruzamentos_palmeiras)
 
