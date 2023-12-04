@@ -36,6 +36,14 @@
         <img src="{{ url_for('static', filename='img/delta_prabaixo.png') }}" alt="Imagem Lateral Direita">
     </div>
     <script>
+
+        var sessionExiste = sessionStorage.getItem('session') !== null;
+
+        if (sessionExiste) {
+            window.location.href = '/home';
+        }
+
+
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('form').addEventListener('submit', async function (event) {
                 event.preventDefault();
