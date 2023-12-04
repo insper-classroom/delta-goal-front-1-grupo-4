@@ -36,6 +36,12 @@
   </div>
 
   <script>
+    var sessionExiste = sessionStorage.getItem('session') !== null;
+
+    if (sessionExiste) {
+        window.location.href = '/home';
+    }
+
     async function registerUser() {
       const form = document.getElementById('registrationForm');
       const formData = new FormData(form);
