@@ -124,7 +124,7 @@ body {
     position: absolute;
     cursor: pointer;
     border: 2px solid #d032ce; /* Cor da borda como na imagem */
-    background-color: rgba(109, 1, 111, 0); /* Cor inicial transparente */
+    background-color: rgba(109, 1, 111, 0.5);
     font-size: small;
 }
 
