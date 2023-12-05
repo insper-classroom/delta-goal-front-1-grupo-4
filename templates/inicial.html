@@ -14,37 +14,9 @@
     
     <img src="{{ url_for('static', filename='img/palmeiras.png') }}" alt="Logotipo Palmeiras" class="time">
     <div class="welcome-message">
-        Bem-vindo(a), {{ session['username'] }}!
+        Bem-vindo(a)!
         <br>
     </div>
-    <video id="myVideo" width="630" height="480" controls>
-      <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
-      Seu navegador não suporta vídeos HTML5.
-  </video>
-  <br>
-  <input type="number" id="startMinuteInput" placeholder="Minuto Inicial">
-  <input type="number" id="endMinuteInput" placeholder="Minuto Final">
-  <button onclick="setVideoTime()">Definir Intervalo de Tempo</button>
-  
-  <script>
-  // Seu código JavaScript aqui
-  function setVideoTime() {
-      var video = document.getElementById("myVideo");
-      var startMinute = document.getElementById("startMinuteInput").value;
-      var endMinute = document.getElementById("endMinuteInput").value;
-  
-      // Converte minutos em segundos e ajusta o tempo do vídeo
-      video.currentTime = startMinute * 60;
-      
-      // Adiciona um ouvinte de evento para pausar o vídeo no minuto final
-      video.ontimeupdate = function() {
-          if (video.currentTime >= endMinute * 60) {
-              video.pause();
-          }
-      };
-  }
-
-  </script>
   <script src="static/js/session.js"></script>
   </body>
   </html>
