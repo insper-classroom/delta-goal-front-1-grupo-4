@@ -99,7 +99,7 @@
                         <!-- jogadores em destaques -->
                         {% for jogador in destaques.sep %}
                         <li class="jogador-item">
-                            <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}">
+                            <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
                             <div class="jogador-info">
                                 <h3>{{ jogador.nome }}</h3>
                                 <p>{{ jogador.numero }}</p>
@@ -116,7 +116,7 @@
                     <ul class="lista-jogadores">
                         {% for jogador in destaques.rbb %}
                         <li class="jogador-item">
-                            <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}">
+                            <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
                             <div class="jogador-info">
                                 <h3>{{ jogador.nome }}</h3>
                                 <p>{{ jogador.numero }}</p>
