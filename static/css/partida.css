@@ -372,7 +372,7 @@ p {
 }
 
 .lista-jogadores-container {
-    max-height: 150px; /* Ajuste conforme necessário */
+    max-height: 300px; /* Ajuste conforme necessário */
     overflow-y: auto; /* Ativa a rolagem vertical se o conteúdo exceder a altura máxima */
     margin: 0 10px; /* Espaçamento acima e abaixo do contêiner */
     margin: 10px;
