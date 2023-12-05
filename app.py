@@ -49,6 +49,7 @@ def login():
     else:
         return render_template('login.html')
 
+
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
     error_message = ""
@@ -160,5 +161,5 @@ def quebras_de_linha():
     return render_template("quebras_de_linha.html")
     
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(debug=True, port=8080)
 
