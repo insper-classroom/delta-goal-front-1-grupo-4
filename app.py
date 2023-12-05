@@ -105,14 +105,14 @@ def get_user_data(username):
     user_data = mongo.db.users.find_one({"nome": username})
     return user_data
 
-@app.route("/perfil")
-def perfil():
-    # Verifique se o usuário está logado
-    if 'username' in session:
-        username = session['username']
-        user_data = get_user_data(username)
-        if user_data:
-            return render_template('perfil.html', user_data=user_data)
+# @app.route("/perfil")
+# def perfil():
+#     # Verifique se o usuário está logado
+#     if 'username' in session:
+#         username = session['username']
+#         user_data = get_user_data(username)
+#         if user_data:
+#             return render_template('perfil.html', user_data=user_data)
     
     # Se o usuário não estiver logado ou os dados do usuário não forem encontrados, redirecione para a página de login
     flash("Você precisa estar logado para acessar esta página.")
