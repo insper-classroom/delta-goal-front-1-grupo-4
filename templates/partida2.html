@@ -1,0 +1,180 @@
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Goal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/partida.css') }}">
+    <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+    <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
+</head>
+<body>
+    
+    
+    <div class="main-container">
+        <div class="left-container">
+            <h3>Visão Geral</h3>
+            <h4>Frequência nas sub-zonas</h4>
+            <div class="campo-futebol">
+                <div class="team-info left-team">
+                    <img src="{{ url_for('static', filename='img/palmeiras.png') }}" alt="Logotipo Time Esquerda">
+                    <span>SEP</span>
+                </div>
+                <div class="team-info right-team">
+                    <span>RBB</span>
+                    <img src="{{ url_for('static', filename='img/bragantino.png') }}" alt="Logotipo Time Direita">
+                </div>
+                <img src="static/img/campo.png" alt="Campo de Futebol">
+
+                <div class="zona" id="D2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D2-2'.replace('-', '.'), '0.0') }}">
+                    <p class="info">D2.2</p>
+                </div>
+                <div class="zona" id="D2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D2-1'.replace('-', '.'), '0.0') }}">
+                    <p class="info">D2.1</p>
+                </div>
+                <div class="zona" id="D1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D1-2'.replace('-', '.'), '0.0') }}">
+                    <p class="info">D1.2</p>
+                </div>  
+                <div class="zona" id="D3" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D3'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D3</p>
+                </div>
+                <div class="zona" id="D1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage= "{{ porcentagens.get('D1-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D1.1</p>
+                </div>
+                <div class="zona" id="E1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('E1-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E1.1</p>
+                </div>
+                <div class="zona" id="E3" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('E3'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E3</p>
+                </div>
+                <div class="zona" id="E2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E2-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E2.2</p>
+                </div>
+                <div class="zona" id="E2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E2-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E2.1</p>
+                </div>
+                <div class="zona" id="E1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E1-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E1.2</p>
+                </div>
+                
+                <div class="zona" id="E2-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E2-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E2.2</p>
+                </div>
+                <div class="zona" id="E2-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E2-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E2.1</p>
+                </div>
+                <div class="zona" id="E1-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E1-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E1.2</p>
+                </div>  
+                <div class="zona" id="E3-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E3'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E3</p>
+                </div>
+                <div class="zona" id="E1-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E1-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">E1.1</p>
+                </div>
+                <div class="zona" id="D1-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D1-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D1.1</p>
+                </div>
+                <div class="zona" id="D3-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D3'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D3</p>
+                </div>
+                <div class="zona" id="D2-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D2-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D2.2</p>
+                </div>
+                <div class="zona" id="D2-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D2-1'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D2.1</p>
+                </div>
+                <div class="zona" id="D1-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D1-2'.replace('-', '.'), '0.00') }}">
+                    <p class="info">D1.2</p>
+                </div>
+            </div>
+
+            <div class="listas-jogadores-container">
+                <div class="lista-jogadores-container sep">
+                    <h3>Destaques SEP</h3>
+                    <ul class="lista-jogadores">
+                        <!-- jogadores em destaques -->
+                        {% for jogador in destaques.pal %}
+                        <li class="jogador-item">
+                            <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
+                            <div class="jogador-info">
+                                <h3>{{ jogador.nome }}</h3>
+                                <p>{{ jogador.numero }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
+
+                <div class="lista-jogadores-container rbb">
+                    <h3>Destaques RBB</h3>
+                    <ul class="lista-jogadores">
+                        {% for jogador in destaques.red %}
+                        <li class="jogador-item">
+                            <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
+                            <div class="jogador-info">
+                                <h3>{{ jogador.nome }}</h3>
+                                <p>{{ jogador.numero }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+            <div class="right-container">
+                    <h2>Lances</h2>
+                    <h3>Lista de cruzamento</h3>
+                    <h4>Selecione um lance para visualizar</p>
+                <div class="scroll-list-container">
+                    <ul id="cruzamentos-list">
+                        {% for cruzamento in cruzamentos %}
+                        <li onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', '{{ cruzamento['nome_jogadores_time_cruzando'] }}', '{{ cruzamento['nome_jogadores_time_defendendo'] }}')">
+                            Cruzamento #{{ loop.index }} - {{ cruzamento['instante_inicial'] }} - {{ cruzamento['desfecho'] }} - Zona {{ cruzamento['zona'] }}
+                        </li>                
+                        {% endfor %}
+                    </ul>
+                </div>
+                <video id="myVideo" width="630" height="480" controls>
+                    <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+                <br>
+                <div class="video-controls">
+                    <button id="retroceder5" class="video-btn" onclick="retroceder(5)">◀ 5s</button>
+                    <button id="retroceder1" class="video-btn" onclick="retroceder(1)">◀ 1s</button>
+                    <button id="playPause" class="video-btn" onclick="playPause()">▶/⏸</button>
+                    <button id="avançar5" class="video-btn" onclick="avançar(5)">5s ▶</button>
+                    <button id="avançar1" class="video-btn" onclick="avançar(1)">1s ▶</button>
+                </div>
+
+                <div class="player-list-container">
+                    <div class="jogadores-atacando">
+                        <h3>Jogadores Atacando</h3>
+                        <ul id="jogadores-atacando-list"></ul>
+                    </div>
+                    
+                    <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
+                
+                    <div class="jogadores-defendendo">
+                        <h3>Jogadores Defendendo</h3>
+                        <ul id="jogadores-defendendo-list"></ul>
+                    </div>
+                </div>
+                <br><br>
+        
+                <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+                
+            </div>
+        </div>
+  </body>
+  </html>
+
