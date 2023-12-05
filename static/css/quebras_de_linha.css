@@ -175,8 +175,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 200px;
     
 }
+
+.left-container {
+    max-width: 50vw;
+}
+
 
 .campo-futebol, .video-container {
     max-height: 100%; 
@@ -194,7 +200,7 @@ body {
     width: 2px; /* Largura da linha */
     height: 100%; /* Altura para preencher o contêiner pai */
     margin: 0 20px; /* Espaço dos lados da linha */
-
+    left:50vw;
 }
 
 
@@ -282,3 +288,13 @@ p {
     align-self: stretch; /* Estica a linha para a altura dos contêineres adjacentes */
 }
 
+li {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    width: 705px; /* Largura da linha */
+}
+.scroll-list-container li:hover {
+    background-color: #a1ea92;
+    text-align: center;
+}
