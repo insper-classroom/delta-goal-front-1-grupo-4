@@ -319,6 +319,10 @@ body {
     
 }
 
+.right-container {
+    padding-top: 300px;
+}
+
 .campo-futebol, .video-container {
     max-height: 100%; 
     display: block; /* Remove espaços em branco abaixo da imagem */
