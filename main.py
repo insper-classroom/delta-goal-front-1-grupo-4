@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 from flask_mail import Mail, Message
 import os
 import re
+import requests
 from bson import json_util
 
 app = Flask('Delta_Goal_Front')
@@ -52,8 +53,17 @@ def ver_dados():
 
 @app.route("/partida")
 def partida():
-    return render_template('partida2.html')
-    # return render_template('partida2.html', destaques=destaques, porcentagens=zone_percentages,porcentagens_bragan=zone_percentages_bragan,cruzamentos=cruzamentos_palmeiras)
+    destaques = requests.get('http://localhost:5000/cruzamentos/destaques')
+    destaques = destaques.json()['destaques']
+    porcentagens = requests.get('http://localhost:5000/cruzamentos/zonas')
+    porcentagens = porcentagens.json()
+    zone_percentages = porcentagens['zonas']['pal']
+    zone_percentages_bragan = porcentagens['zonas']['red']
+    desfechos = requests.get('http://localhost:5000/cruzamentos/desfechos')
+    cruzamentos = requests.get('http://localhost:5000/cruzamentos')
+    cruzamentos_palmeiras = cruzamentos.json()['cruzamentos']['pal']
+
+    return render_template('partida2.html', destaques=destaques, porcentagens=zone_percentages,porcentagens_bragan=zone_percentages_bragan,cruzamentos=cruzamentos_palmeiras)
     
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
