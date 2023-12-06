@@ -60,10 +60,11 @@ def partida():
     zone_percentages = porcentagens['zonas']['pal']
     zone_percentages_bragan = porcentagens['zonas']['red']
     desfechos = requests.get('http://localhost:5000/cruzamentos/desfechos')
+    desfechos = desfechos.json()
+    desfechos = desfechos['desfechos']
     cruzamentos = requests.get('http://localhost:5000/cruzamentos')
     cruzamentos_palmeiras = cruzamentos.json()['cruzamentos']['pal']
-
-    return render_template('partida2.html', destaques=destaques, porcentagens=zone_percentages,porcentagens_bragan=zone_percentages_bragan,cruzamentos=cruzamentos_palmeiras)
+    return render_template('partida2.html', desfechos=desfechos, destaques=destaques, porcentagens=zone_percentages,porcentagens_bragan=zone_percentages_bragan,cruzamentos=cruzamentos_palmeiras)
     
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
