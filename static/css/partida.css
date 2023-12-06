@@ -304,8 +304,8 @@ body {
 .main-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+    height: fit-content;
     flex: 1 0 auto;
 }
 
@@ -317,10 +317,6 @@ body {
     align-items: center;
     flex-direction: column;
     
-}
-
-.right-container {
-    padding-top: 300px;
 }
 
 .campo-futebol, .video-container {
