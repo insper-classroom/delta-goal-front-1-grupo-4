@@ -21,7 +21,9 @@
         
         var response = await fetch("http://localhost:5001/palmeiras_desfechos")
         response = await response.json()
+        
         let dados = response
+        console.log(dados)
         let keys = Object.keys(dados)
         const list = [["Desfecho", "Rupturas"]]
         
@@ -30,7 +32,7 @@
         }
         var data = google.visualization.arrayToDataTable(list);
         var options = {
-            title: 'Porcentagem de Rupturas por jogador'
+            title: 'Desfechos'
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -46,7 +48,6 @@
         var response = await fetch("http://localhost:5001/palmeiras_quebra_linha")
         response = await response.json()
         let dados = response
-        console.log(Object.keys(dados))
         let keys = Object.keys(dados)
 
         let jogadores = document.getElementById("jogadores")
@@ -59,19 +60,83 @@
     }
 
     window.onload = jogadores()
+
+    async function rupturas() {
+        var response = await fetch("http://localhost:5001/palmeiras_quebra_linha")
+        response = await response.json()
+        let dados = response
+        let keys = Object.keys(dados)
+
+        let tempos = []
+        let desfechos = []
+        let zonas = []
+        var desfe = document.getElementById("d")
+
+        let quebras = []
+        console.log(dados)
+
+        for (let name in dados) {
+            for (let k in dados[name].desfecho) { 
+                console.log("dsa")
+                tempos.push(dados[name].tempo_ruptura[k])
+                desfechos.push(dados[name].desfecho[k])
+                zonas.push(dados[name].zona[k])
+                quebras.push([dados[name].tempo_ruptura[k],dados[name].desfecho[k],dados[name].zona[k]])
+    
+            }
+
+        }
+        console.log(desfechos)
+        console.log(quebras)
+
+        for (var j = 0; j < quebras.length; j++) {
+            let li = document.createElement('li');
+            var tempo =  quebras[j][0];
+            var desfecho = quebras[j][1];
+            var zona =  quebras[j][2]
+            li.innerHTML = "Ruptura #" + (j+1) + " Desfecho: " + desfecho + " Zona: " + zona
+            desfe.appendChild(li)
+            }
+    }
+
+    window.onload = rupturas()
+
   </script>
 
 <div class="main-container">
     <div class="left-container">
+        <h3>Visão Geral</h3>
+        <h4>Permanência nas sub-zonas</h4>
+        <div class="campo-futebol">
+        <img src="static/img/campo.png" alt="Campo de Futebol">
         
-        <div class="listas-jogadores-container">
-            <div class="lista-jogadores-container sep">
-                <h3>Destaques SEP</h3>
-                <ul id="jogadores"></ul>
+        <div class="zona" id="M2" onmouseover='23' onmouseout="14" data-percentage='%'>
+            <p class="info">M2</p>
+        </div>
+            <div class="zona" id="B1" onmouseover="showPercentage(this)" onmouseout="showName(this)">
+                <p class="info">B1</p>
+            </div>
+            <div class="zona" id="B2" onmouseover="showPercentage(this)" onmouseout="showName(this)" >
+                <p class="info">B2</p>
+            </div>  
+            <div class="zona" id="A3" onmouseover="showPercentage(this)" onmouseout="showName(this)">
+                <p class="info">3A</p>
+            </div>
+            <div class="zona" id="B3" onmouseover="showPercentage(this)" onmouseout="showName(this)">
+                <p class="info">3B</p>
+            </div>
+        </div>
+            <div class="listas-jogadores-container">
+                <div class="lista-jogadores-container sep">
+                    <h3>Destaques SEP</h3>
+                    <div class="jogador-info">
+                    <ul id="jogadores"></ul>
+                </div>
             </div>
             
             <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
-            <div id="piechart" style="width: 400px; height: 400px; margin: 50px; color:black;"></div>
+
+            <div id="piechart" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
 
                 
             </div>
@@ -80,6 +145,12 @@
         <div class="divider"></div>
 
         <div class="right-container">
+            <h2>Lances</h2>
+            <h3>Lista de Rupturas</h3>
+            <h4>Selecione um lance para visualizar</p>
+        <div class="scroll-list-container">
+            <ul id="d"></ul>
+        </div>
             <video id="myVideo" width="630" height="480" controls>
                 <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
                 Seu navegador não suporta vídeos HTML5.
@@ -91,7 +162,6 @@
                 <button id="playPause" class="video-btn">▶/⏸</button>
                 <button id="avançar5" class="video-btn">5s ▶</button>
                 <button id="avançar1" class="video-btn">1s ▶</button>
-            </div>
 
             <input type="number" id="startMinuteInput" placeholder="Minuto Inicial">
             <input type="number" id="endMinuteInput" placeholder="Minuto Final">
