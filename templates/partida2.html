@@ -9,6 +9,7 @@
     <title>Delta Goal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/partida.css') }}">
     <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
 </head>
 <body>
@@ -126,8 +127,123 @@
                     </ul>
                 </div>
             </div>
-        </div>
+            <style>
+            .graficos {
+                display: flex;
+                flex: 1;
+                width: 100%;
+                height: fit-content;
 
+              }
+          
+              .graficos-time-1, .graficos-time-2 {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #ccc;
+                height: fit-content;
+              }
+              
+          
+            </style>
+            <div class="graficos">
+                <div class="graficos-time-1">
+                    <div id="grafico-cruzamentos-1"></div>
+                    <div id="grafico-destaques-1"></div>
+                </div>
+                <div class="graficos-time-2">
+                    <div id="grafico-cruzamentos-2"></div>
+                    <div id="grafico-destaques-2"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            // let destaques = '{{ destaques }}'
+            // destaques=destaques.replaceAll("&#39;", '"')
+            
+            // destaques = JSON.parse(destaques)
+            // console.log(destaques)
+            // let destaques_1 = destaques.pal
+            // console.log(destaques_1)
+            // let list = [["Jogador", "Quantidade", { role: "style" }]]
+            // for (let i = 0; i<destaques_1.length;i++) {
+            //     let item = destaques_1[i]
+            //     list.push([item.nome_jogador, item.num_participacoes_em_cruzamentos, "color:#469e7f"])
+            // }
+
+
+            google.charts.load('current', {'packages':['bar']});
+
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                let destaques = '{{ destaques }}';
+                destaques = destaques.replaceAll("&#39;", '"');
+                destaques = JSON.parse(destaques);
+
+                let destaques_1 = destaques.pal;
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Jogador');
+                data.addColumn('number', 'Quantidade');
+
+                for (let i = 0; i < destaques_1.length; i++) {
+                    let item = destaques_1[i];
+                    data.addRow([item.nome_jogador, item.num_participacoes_em_cruzamentos]);
+                }
+
+                var options = {
+                    chart: {
+                        title: 'Número de participações em cruzamentos',
+                        subtitle: '',
+                    },
+                    bars: 'horizontal',
+                    width: 400,
+                    height: 350,
+                    legend: { position: 'none' },
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('grafico-cruzamentos-1'));
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            }
+
+            google.charts.load('current', {'packages':['bar']});
+
+            google.charts.setOnLoadCallback(drawChart2);
+
+            function drawChart2() {
+                let destaques = '{{ destaques }}';
+                destaques = destaques.replaceAll("&#39;", '"');
+                destaques = JSON.parse(destaques);
+
+                let destaques_2 = destaques.red;
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Jogador');
+                data.addColumn('number', 'Quantidade');
+
+                for (let i = 0; i < destaques_2.length; i++) {
+                    let item = destaques_2[i];
+                    data.addRow([item.nome_jogador, item.num_participacoes_em_cruzamentos]);
+                }
+
+                var options = {
+                    chart: {
+                        title: 'Número de participações em cruzamentos',
+                        subtitle: '',
+                    },
+                    bars: 'horizontal',
+                    width: 400,
+                    height: 350,
+                    legend: { position: 'none' },
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('grafico-cruzamentos-2'));
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            }
+        </script>
         <div class="divider"></div>
 
             <div class="right-container">
