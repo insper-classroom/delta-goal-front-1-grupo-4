@@ -19,7 +19,7 @@
     
     async function drawChart() {
         
-        var response = await fetch("http://localhost:5001/palmeiras_desfechos")
+        var response = await fetch("http://localhost:5000/palmeiras_desfechos")
         response = await response.json()
         
         let dados = response
@@ -44,63 +44,6 @@
     
     window.onload = drawChart()
     
-    async function jogadores() {
-        var response = await fetch("http://localhost:5001/palmeiras_quebra_linha")
-        response = await response.json()
-        let dados = response
-        let keys = Object.keys(dados)
-
-        let jogadores = document.getElementById("jogadores")
-
-        for (i = 0; i < keys.length; ++i) {
-            let li = document.createElement('li');
-            li.innerText = keys[i];
-            jogadores.appendChild(li);
-    }
-    }
-
-    window.onload = jogadores()
-
-    async function rupturas() {
-        var response = await fetch("http://localhost:5001/palmeiras_quebra_linha")
-        response = await response.json()
-        let dados = response
-        let keys = Object.keys(dados)
-
-        let tempos = []
-        let desfechos = []
-        let zonas = []
-        var desfe = document.getElementById("d")
-
-        let quebras = []
-        console.log(dados)
-
-        for (let name in dados) {
-            for (let k in dados[name].desfecho) { 
-                console.log("dsa")
-                tempos.push(dados[name].tempo_ruptura[k])
-                desfechos.push(dados[name].desfecho[k])
-                zonas.push(dados[name].zona[k])
-                quebras.push([dados[name].tempo_ruptura[k],dados[name].desfecho[k],dados[name].zona[k]])
-    
-            }
-
-        }
-        console.log(desfechos)
-        console.log(quebras)
-
-        for (var j = 0; j < quebras.length; j++) {
-            let li = document.createElement('li');
-            var tempo =  quebras[j][0];
-            var desfecho = quebras[j][1];
-            var zona =  quebras[j][2]
-            li.innerHTML = "Ruptura #" + (j+1) + " Desfecho: " + desfecho + " Zona: " + zona
-            desfe.appendChild(li)
-            }
-    }
-
-    window.onload = rupturas()
-
   </script>
 
 <div class="main-container">
@@ -126,18 +69,27 @@
                 <p class="info">3B</p>
             </div>
         </div>
-            <div class="listas-jogadores-container">
-                <div class="lista-jogadores-container sep">
-                    <h3>Destaques SEP</h3>
-                    <div class="jogador-info">
-                    <ul id="jogadores"></ul>
-                </div>
+        <div class="listas-jogadores-container">
+            <div class="lista-jogadores-container sep">
+                <h3>Destaques SEP</h3>
+                <ul class="lista-jogadores">
+                    <!-- jogadores em destaques -->
+                    {% for jogador in destaques.pal %}
+                    <li class="jogador-item">
+                        <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
+                        <div class="jogador-info">
+                            <h3>{{ jogador.nome_jogador }}</h3>
+                            <p>{{ jogador.num_participacoes_em_cruzamentos }}</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
-            
+
             <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
 
+            
             <div id="piechart" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
-
                 
             </div>
         </div>
@@ -146,27 +98,20 @@
 
         <div class="right-container">
             <h2>Lances</h2>
-            <h3>Lista de Rupturas</h3>
+            <h3>Lista de quebras</h3>
             <h4>Selecione um lance para visualizar</p>
-        <div class="scroll-list-container">
-            <ul id="d"></ul>
-        </div>
-            <video id="myVideo" width="630" height="480" controls>
-                <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos HTML5.
-            </video>
-            <br>
-            <div class="video-controls">
-                <button id="retroceder5" class="video-btn">◀ 5s</button>
-                <button id="retroceder1" class="video-btn">◀ 1s</button>
-                <button id="playPause" class="video-btn">▶/⏸</button>
-                <button id="avançar5" class="video-btn">5s ▶</button>
-                <button id="avançar1" class="video-btn">1s ▶</button>
-
-            <input type="number" id="startMinuteInput" placeholder="Minuto Inicial">
-            <input type="number" id="endMinuteInput" placeholder="Minuto Final">
-            <button onclick="setVideoTime()">Definir Intervalo de Tempo</button>
-            <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+                
+        <video id="myVideo" width="630" height="480" controls>
+            <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+        <br>
+        <div class="video-controls">
+            <button id="retroceder5" class="video-btn" onclick="retroceder(5)">◀ 5s</button>
+            <button id="retroceder1" class="video-btn" onclick="retroceder(1)">◀ 1s</button>
+            <button id="playPause" class="video-btn" onclick="playPause()">▶/⏸</button>
+            <button id="avançar5" class="video-btn" onclick="avançar(5)">5s ▶</button>
+            <button id="avançar1" class="video-btn" onclick="avançar(1)">1s ▶</button>
         </div>
     </div>
   </body>

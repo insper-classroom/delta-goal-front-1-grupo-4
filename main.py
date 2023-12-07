@@ -84,6 +84,13 @@ def partida():
         cruzamentos=cruzamentos_palmeiras,
     )
 
+@app.route("/quebras")
+def quebras():
+    destaques = requests.get("http://localhost:5000/quebra_linha/destaques")
+    destaques = destaques.json()["destaques"]
+    # quebras = requests.get("http://localhost:5000/quebra_linha")
+    # quebras_palmeiras = quebras.json()["quebras_linha"]["pal"]
+    return render_template("quebras_de_linha.html",destaques=destaques
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
