@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,10 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
 </head>
+
 <body>
-    
-    
+
+
     <div class="main-container">
         <div class="left-container">
             <h3>Visão Geral</h3>
@@ -30,65 +32,85 @@
                 </div>
                 <img src="static/img/campo.png" alt="Campo de Futebol">
 
-                <div class="zona" id="D2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D2-2'.replace('-', '.'), '0.0') }}">
+                <div class="zona" id="D2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('D2-2'.replace('-', '.'), '0.0') }}">
                     <p class="info">D2.2</p>
                 </div>
-                <div class="zona" id="D2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D2-1'.replace('-', '.'), '0.0') }}">
+                <div class="zona" id="D2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('D2-1'.replace('-', '.'), '0.0') }}">
                     <p class="info">D2.1</p>
                 </div>
-                <div class="zona" id="D1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D1-2'.replace('-', '.'), '0.0') }}">
+                <div class="zona" id="D1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('D1-2'.replace('-', '.'), '0.0') }}">
                     <p class="info">D1.2</p>
-                </div>  
-                <div class="zona" id="D3" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('D3'.replace('-', '.'), '0.00') }}">
+                </div>
+                <div class="zona" id="D3" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('D3'.replace('-', '.'), '0.00') }}">
                     <p class="info">D3</p>
                 </div>
-                <div class="zona" id="D1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage= "{{ porcentagens.get('D1-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="D1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('D1-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">D1.1</p>
                 </div>
-                <div class="zona" id="E1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('E1-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E1-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('E1-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">E1.1</p>
                 </div>
-                <div class="zona" id="E3" onmouseover="showPercentage(this)" onmouseout="showName(this)" data-percentage="{{ porcentagens.get('E3'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E3" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('E3'.replace('-', '.'), '0.00') }}">
                     <p class="info">E3</p>
                 </div>
-                <div class="zona" id="E2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E2-2'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E2-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('E2-2'.replace('-', '.'), '0.00') }}">
                     <p class="info">E2.2</p>
                 </div>
-                <div class="zona" id="E2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E2-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E2-1" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('E2-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">E2.1</p>
                 </div>
-                <div class="zona" id="E1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens.get('E1-2'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E1-2" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens.get('E1-2'.replace('-', '.'), '0.00') }}">
                     <p class="info">E1.2</p>
                 </div>
-                
-                <div class="zona" id="E2-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E2-2'.replace('-', '.'), '0.00') }}">
+
+                <div class="zona" id="E2-2-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('E2-2'.replace('-', '.'), '0.00') }}">
                     <p class="info">E2.2</p>
                 </div>
-                <div class="zona" id="E2-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E2-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E2-1-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('E2-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">E2.1</p>
                 </div>
-                <div class="zona" id="E1-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E1-2'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E1-2-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('E1-2'.replace('-', '.'), '0.00') }}">
                     <p class="info">E1.2</p>
-                </div>  
-                <div class="zona" id="E3-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E3'.replace('-', '.'), '0.00') }}">
+                </div>
+                <div class="zona" id="E3-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('E3'.replace('-', '.'), '0.00') }}">
                     <p class="info">E3</p>
                 </div>
-                <div class="zona" id="E1-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('E1-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="E1-1-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('E1-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">E1.1</p>
                 </div>
-                <div class="zona" id="D1-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D1-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="D1-1-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('D1-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">D1.1</p>
                 </div>
-                <div class="zona" id="D3-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D3'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="D3-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('D3'.replace('-', '.'), '0.00') }}">
                     <p class="info">D3</p>
                 </div>
-                <div class="zona" id="D2-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D2-2'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="D2-2-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('D2-2'.replace('-', '.'), '0.00') }}">
                     <p class="info">D2.2</p>
                 </div>
-                <div class="zona" id="D2-1-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D2-1'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="D2-1-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('D2-1'.replace('-', '.'), '0.00') }}">
                     <p class="info">D2.1</p>
                 </div>
-                <div class="zona" id="D1-2-D"onmouseover="showPercentage(this)" onmouseout="showName(this)"data-percentage="{{ porcentagens_bragan.get('D1-2'.replace('-', '.'), '0.00') }}">
+                <div class="zona" id="D1-2-D" onmouseover="showPercentage(this)" onmouseout="showName(this)"
+                    data-percentage="{{ porcentagens_bragan.get('D1-2'.replace('-', '.'), '0.00') }}">
                     <p class="info">D1.2</p>
                 </div>
             </div>
@@ -128,24 +150,23 @@
                 </div>
             </div>
             <style>
-            .graficos {
-                display: flex;
-                flex: 1;
-                width: 100%;
-                height: fit-content;
+                .graficos {
+                    display: flex;
+                    flex: 1;
+                    width: 100%;
+                    height: fit-content;
 
-              }
-          
-              .graficos-time-1, .graficos-time-2 {
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-                padding: 20px;
-                border: 1px solid #ccc;
-                height: fit-content;
-              }
-              
-          
+                }
+
+                .graficos-time-1,
+                .graficos-time-2 {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    padding: 20px;
+                    border: 1px solid #ccc;
+                    height: fit-content;
+                }
             </style>
             <div class="graficos">
                 <div class="graficos-time-1">
@@ -160,7 +181,7 @@
         </div>
         <script type="text/javascript">
 
-            google.charts.load('current', {'packages':['bar']});
+            google.charts.load('current', { 'packages': ['bar'] });
 
             google.charts.setOnLoadCallback(drawChart);
 
@@ -195,7 +216,7 @@
                 chart.draw(data, google.charts.Bar.convertOptions(options));
             }
 
-            google.charts.load('current', {'packages':['bar']});
+            google.charts.load('current', { 'packages': ['bar'] });
 
             google.charts.setOnLoadCallback(drawChart2);
 
@@ -230,14 +251,14 @@
                 chart.draw(data, google.charts.Bar.convertOptions(options));
             }
 
-            google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', { 'packages': ['corechart'] });
             google.charts.setOnLoadCallback(drawChart3);
-            
+
             function drawChart3() {
-                
+
                 let desfechos = '{{ desfechos }}'
                 desfechos = desfechos.replaceAll("&#39;", '"');
-                desfechos =  JSON.parse(desfechos)
+                desfechos = JSON.parse(desfechos)
 
                 let desfechosTime1 = desfechos.pal;
 
@@ -259,14 +280,14 @@
                 chart.draw(dataChart, options);
             }
 
-            google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', { 'packages': ['corechart'] });
             google.charts.setOnLoadCallback(drawChart4);
-            
+
             function drawChart4() {
-                
+
                 let desfechos = '{{ desfechos }}'
                 desfechos = desfechos.replaceAll("&#39;", '"');
-                desfechos =  JSON.parse(desfechos)
+                desfechos = JSON.parse(desfechos)
 
                 let desfechosTime1 = desfechos.red;
 
@@ -291,16 +312,18 @@
         </script>
         <div class="divider"></div>
 
-            <div class="right-container">
-                    <h2>Lances</h2>
-                    <h3>Lista de cruzamento</h3>
-                    <h4>Selecione um lance para visualizar</p>
+        <div class="right-container">
+            <h2>Lances</h2>
+            <h3>Lista de cruzamento</h3>
+            <h4>Selecione um lance para visualizar</p>
                 <div class="scroll-list-container">
                     <ul id="cruzamentos-list">
                         {% for cruzamento in cruzamentos %}
-                        <li onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', '{{ cruzamento['nome_jogadores_time_cruzando'] }}', '{{ cruzamento['nome_jogadores_time_defendendo'] }}')">
-                            Cruzamento #{{ loop.index }} - {{ cruzamento['instante_inicial'] }} - {{ cruzamento['desfecho'] }} - Zona {{ cruzamento['zona'] }}
-                        </li>                
+                        <li
+                            onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', '{{ cruzamento['nome_jogadores_time_cruzando'] }}', '{{ cruzamento['nome_jogadores_time_defendendo'] }}')">
+                            Cruzamento #{{ loop.index }} - {{ cruzamento['instante_inicial'] }} - {{
+                            cruzamento['desfecho'] }} - Zona {{ cruzamento['zona'] }}
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -322,20 +345,20 @@
                         <h3>Jogadores Atacando</h3>
                         <ul id="jogadores-atacando-list"></ul>
                     </div>
-                    
+
                     <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
-                
+
                     <div class="jogadores-defendendo">
                         <h3>Jogadores Defendendo</h3>
                         <ul id="jogadores-defendendo-list"></ul>
                     </div>
                 </div>
                 <br><br>
-        
-                <script src="{{ url_for('static', filename='js/video.js') }}"></script>
-                
-            </div>
-        </div>
-  </body>
-  </html>
 
+                <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+
+        </div>
+    </div>
+</body>
+
+</html>
