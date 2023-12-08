@@ -16,9 +16,11 @@ body {
 }
 
 .logo {
-    max-width: 250px; /* Ajuste para o tamanho desejado */
-    margin: 0 auto; /* Isso irá centralizar a imagem */
-    display: block; /* Isso faz a imagem ser tratada como um bloco, permitindo o uso de margin auto */
+    max-width: 250px; 
+    margin: 0 auto; 
+    display: block;
+    width:250px;
+    height: 140px;
 }
 
 .container {

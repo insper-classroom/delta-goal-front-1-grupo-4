@@ -139,6 +139,8 @@ li{
 
 .logo{
     margin-left: 13px;
+    width:200px;
+    height: 100px;
 }
 
 .navigation ul li a .icon ion-icon{

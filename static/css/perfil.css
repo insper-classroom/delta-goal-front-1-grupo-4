@@ -41,8 +41,10 @@ body {
 
 .logo {
     position: absolute;
-    top: 0px; /* Ajuste a distância do topo conforme necessário */
-    left: 30px; /* Ajuste a distância da esquerda conforme necessário */
+    top: -5px;
+    left: 30px;
+    width:200px;
+    height: 100px;
   }
 
   .perfil-container {
