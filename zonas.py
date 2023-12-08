@@ -109,4 +109,3 @@ zones_of_interest_v4 = ["Zona 1 - A", "Zona 1 - B", "Zona 2", "Zona 3 - A", "Zon
 with open('dados/modelo_quebra_linha.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 percentages_v4 = calculate_line_break_percentages_v4(data, zones_of_interest_v4)
-print(percentages_v4)
