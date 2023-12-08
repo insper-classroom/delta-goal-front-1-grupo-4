@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta Goal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/partida.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cruzamentos.css') }}">
     <script src="{{ url_for('static', filename='js/video.js') }}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="icon" href="{{ url_for('static', filename='img/delta_goal_logo.png') }}">
@@ -17,8 +17,7 @@
 <body>
 
 
-    <div class="main-container">
-        <div class="left-container">
+
             <h3>Visão Geral</h3>
             <h4>Frequência nas sub-zonas</h4>
             <div class="campo-futebol">
@@ -131,8 +130,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-
-                <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
 
                 <div class="lista-jogadores-container rbb">
                     <h3>Destaques RBB</h3>
@@ -312,7 +309,6 @@
         </script>
         <div class="divider"></div>
 
-        <div class="right-container">
             <h2>Lances</h2>
             <h3>Lista de cruzamento</h3>
             <h4>Selecione um lance para visualizar</p>
@@ -346,7 +342,6 @@
                         <ul id="jogadores-atacando-list"></ul>
                     </div>
 
-                    <div class="list-divider"></div> <!-- Linha divisória entre as listas -->
 
                     <div class="jogadores-defendendo">
                         <h3>Jogadores Defendendo</h3>

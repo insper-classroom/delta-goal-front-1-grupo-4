@@ -322,21 +322,18 @@ input[type="number"] {
 
 
 .main-container {
-    display: flex;
-    justify-content: center;
+
     align-items: flex-start;
     height: fit-content;
-    flex: 1 0 auto;
+
 }
 
 .left-container,
 .right-container {
-    flex: 1;
+    flex: none;
     /* Ambos tomarão 50% do espaço disponível */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: block;
+    width: auto;
 
 }
 
@@ -353,17 +350,7 @@ input[type="number"] {
 }
 
 
-.divider {
-    background-color: #879093;
-    /* Cor da linha */
-    width: 2px;
-    /* Largura da linha */
-    height: 100%;
-    /* Altura para preencher o contêiner pai */
-    margin: 0 20px;
-    /* Espaço dos lados da linha */
 
-}
 
 .team-info {
     position: absolute;
