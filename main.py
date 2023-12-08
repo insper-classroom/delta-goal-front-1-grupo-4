@@ -6,6 +6,7 @@ import os
 import re
 import requests
 from bson import json_util
+from zonas import calculate_line_break_percentages_v4,data, zones_of_interest_v4
 
 app = Flask("Delta_Goal_Front")
 app.config["SECRET_KEY"] = "dg123"
@@ -90,7 +91,8 @@ def quebras():
     destaques = destaques.json()["destaques"]
     # quebras = requests.get("http://localhost:5000/quebra_linha")
     # quebras_palmeiras = quebras.json()["quebras_linha"]["pal"]
-    return render_template("quebras_de_linha.html",destaques=destaques)
+    porcentagem_quebra= calculate_line_break_percentages_v4(data, zones_of_interest_v4)
+    return render_template("quebras_de_linha.html",destaques=destaques, porcentagem_quebra= porcentagem_quebra)
 
 @app.route("/partidas")
 def partidas():
