@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color:white;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -242,17 +242,7 @@ input[type="number"] {
 }
 
 
-.divider {
-    background-color: #879093;
-    /* Cor da linha */
-    width: 2px;
-    /* Largura da linha */
-    height: 100%;
-    /* Altura para preencher o contêiner pai */
-    margin: 0 20px;
-    /* Espaço dos lados da linha */
 
-}
 
 .team-info {
     position: absolute;
@@ -357,18 +347,7 @@ p {
     /* Alinha os itens ao topo */
 }
 
-.list-divider {
-    width: 1px;
-    /* Largura da linha */
-    background-color: #dcdcdc;
-    /* Cor da linha, escolha uma cor que combine com seu design */
-    margin: 0 20px;
-    /* Espaçamento horizontal da linha */
-    height: auto;
-    /* Altura automática para se ajustar ao conteúdo */
-    align-self: stretch;
-    /* Estica a linha para a altura dos contêineres adjacentes */
-}
+
 
 .scroll-list-container {
     height: 200px;
@@ -420,19 +399,7 @@ p {
 
 }
 
-.list-divider {
-    width: 1px;
-    /* Largura da linha divisória */
-    background-color: #dcdcdc;
-    /* Cor da linha */
-    margin: 0 20px;
-    /* Espaçamento horizontal da linha */
-    align-self: stretch;
-    /* Ajusta a altura conforme os elementos adjacentes */
-    height: auto;
-    /* Altura automática para se ajustar ao conteúdo */
 
-}
 
 /* Adicionais para as listas UL dentro dos contêineres */
 #jogadores-atacando-list,
