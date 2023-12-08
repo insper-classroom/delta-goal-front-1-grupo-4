@@ -5,8 +5,7 @@
         <img src="{{ url_for('static', filename='img/logo_b_w.png') }}" alt="Logo" class="logo">
     </a>
     <a href="{{ url_for('home') }}">Home</a>
-    <a href="#">Time</a>
-    <a href="{{ url_for('partida') }}">Partida</a>
+    <a href="{{ url_for('partidas') }}">Partidas</a>
     <a href="#" onclick="sessionLogout()">Sair</a>
     <script>
     async function sessionLogout() {
