@@ -62,7 +62,7 @@ def ver_dados():
     return "Dados"
 
 
-@app.route("/partida")
+@app.route("/cruzamentos")
 def partida():
     destaques = requests.get("http://localhost:5000/cruzamentos/destaques")
     destaques = destaques.json()["destaques"]
@@ -76,7 +76,7 @@ def partida():
     cruzamentos = requests.get("http://localhost:5000/cruzamentos")
     cruzamentos_palmeiras = cruzamentos.json()["cruzamentos"]["pal"]
     return render_template(
-        "partida2.html",
+        "cruzamentos.html",
         desfechos=desfechos,
         destaques=destaques,
         porcentagens=zone_percentages,
