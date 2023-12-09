@@ -59,5 +59,40 @@ function playPause() {
     }
 }
 
+function filterCruzamentos() {
+    var desfechoFilter = document.getElementById('desfecho').value;
+    var zonaFilter = document.getElementById('zona').value;
 
+    var cruzamentos = document.getElementsByClassName('cruzamento');
 
+    for (var i = 0; i < cruzamentos.length; i++) {
+        var cruzamento = cruzamentos[i];
+
+        var desfechoMatch = cruzamento.dataset.desfecho;
+        var zonaMatch = cruzamento.dataset.zona;
+
+        if ((desfechoMatch === desfechoFilter || desfechoFilter === 'all') && (zonaMatch === zonaFilter || zonaFilter === 'all')) {
+            cruzamento.style.display = '';
+        } else {
+            cruzamento.style.display = 'none';
+        }
+    }
+}
+
+function filterTimeCruzamento() {
+    var timeFilter = document.getElementById('time').value;
+
+    var palmeiras = document.getElementById('Filtro-Palmeiras');
+    var bragantino = document.getElementById('Filtro-Bragantino');
+
+    if (timeFilter === 'Palmeiras') {
+        palmeiras.style.display = '';
+        bragantino.style.display = 'none';
+    } else if (timeFilter === 'Bragantino') {
+        palmeiras.style.display = 'none';
+        bragantino.style.display = '';
+    } else {
+        palmeiras.style.display = '';
+        bragantino.style.display = '';
+    }
+}
