@@ -76,13 +76,14 @@ def cruzamentos():
     desfechos = desfechos["desfechos"]
     cruzamentos = requests.get("http://localhost:5000/cruzamentos")
     cruzamentos_palmeiras = cruzamentos.json()["cruzamentos"]["pal"]
+    cruzamentos_bragantino = cruzamentos.json()['cruzamentos']['red']
     return render_template(
         "cruzamentos.html",
         desfechos=desfechos,
         destaques=destaques,
         porcentagens=zone_percentages,
         porcentagens_bragan=zone_percentages_bragan,
-        cruzamentos=cruzamentos_palmeiras,
+        cruzamentos=cruzamentos_palmeiras, cruzamentos1=cruzamentos_bragantino,
     )
 
 @app.route("/quebras")

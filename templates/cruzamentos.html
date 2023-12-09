@@ -313,11 +313,20 @@
             <h4>Selecione um lance para visualizar</p>
                 <div class="scroll-list-container">
                     <ul id="cruzamentos-list">
+                        <h4>Palmeiras:</h4>
                         {% for cruzamento in cruzamentos %}
                         <li
                             onclick="seekToTime('{{ cruzamento['instante_inicial'] | convert_to_seconds }}', '{{ cruzamento['nome_jogadores_time_cruzando'] }}', '{{ cruzamento['nome_jogadores_time_defendendo'] }}')">
                             Cruzamento #{{ loop.index }} - {{ cruzamento['instante_inicial'] }} - {{
                             cruzamento['desfecho'] }} - Zona {{ cruzamento['zona'] }}
+                        </li>
+                        {% endfor %}
+                        <h4>Bragantino:</h4>
+                        {% for cruzamento1 in cruzamentos1 %}
+                        <li
+                            onclick="seekToTime('{{ cruzamento1['instante_inicial'] | convert_to_seconds }}', '{{ cruzamento1['nome_jogadores_time_cruzando'] }}', '{{ cruzamento1['nome_jogadores_time_defendendo'] }}')">
+                            Cruzamento #{{ loop.index }} - {{ cruzamento1['instante_inicial'] }} - {{
+                            cruzamento1['desfecho'] }} - Zona {{ cruzamento1['zona'] }}
                         </li>
                         {% endfor %}
                     </ul>
