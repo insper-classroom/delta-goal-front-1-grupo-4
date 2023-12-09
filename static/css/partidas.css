@@ -91,3 +91,11 @@ h1 {
 .partidas a:hover {
     text-decoration-color: rgb(237, 19, 190);
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+
