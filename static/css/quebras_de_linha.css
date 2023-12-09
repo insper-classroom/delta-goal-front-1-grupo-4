@@ -489,6 +489,110 @@ p {
     /* Remove margens padrão */
     cursor: pointer;
 }
+.lista-jogadores-container {
+    max-height: 300px;
+    /* Ajuste conforme necessário */
+    overflow-y: auto;
+    /* Ativa a rolagem vertical se o conteúdo exceder a altura máxima */
+    margin: 0 10px;
+    /* Espaçamento acima e abaixo do contêiner */
+    margin: 10px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.lista-jogadores {
+    list-style: none;
+    /* Remove estilos padrão da lista */
+    padding: 0;
+    /* Remove o padding padrão */
+    margin: 0;
+    /* Remove a margem padrão */
+}
+
+.jogador-item {
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente o conteúdo do item */
+    margin-bottom: 10px;
+    /* Espaçamento entre os itens */
+}
+
+.jogador-item img {
+    width: 50px;
+    /* Largura da foto do jogador */
+    height: 50px;
+    /* Altura da foto do jogador */
+    border-radius: 50%;
+    /* Torna a foto circular */
+    margin-right: 10px;
+    /* Espaçamento entre a foto e as informações do jogador */
+    object-fit: cover;
+
+
+}
+
+.jogador-info h3 {
+    font-size: 1em;
+    /* Tamanho do nome do jogador */
+    margin: 0;
+    /* Remove a margem padrão */
+}
+
+.jogador-info p {
+    font-size: 0.8em;
+    /* Tamanho da posição do jogador */
+    color: #666;
+    /* Cor do texto da posição */
+    margin: 0;
+    /* Remove a margem padrão */
+}
+
+
+.listas-jogadores-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: flex-start;
+    /* Alinha os itens ao topo */
+}
+
+.list-divider {
+    width: 1px;
+    /* Largura da linha */
+    background-color: #dcdcdc;
+    /* Cor da linha, escolha uma cor que combine com seu design */
+    margin: 0 20px;
+    /* Espaçamento horizontal da linha */
+    height: auto;
+    /* Altura automática para se ajustar ao conteúdo */
+    align-self: stretch;
+    /* Estica a linha para a altura dos contêineres adjacentes */
+}
+
+.scroll-list-container {
+    height: 200px;
+    /* ou a altura que você desejar */
+    overflow-y: auto;
+    display: flex;
+    width: 100%;
+    align-self: stretch;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.scroll-list-container ul {
+    padding: 0;
+    list-style: none;
+}
+
+.scroll-list-container li {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    width: 705px;
+    /* Largura da linha */
+}
 
 @media screen and (max-width: 768px) {
     .main-container,

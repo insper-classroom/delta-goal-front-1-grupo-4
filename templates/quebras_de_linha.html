@@ -85,7 +85,19 @@
                         <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
                         <div class="jogador-info">
                             <h3>{{ jogador.nome_jogador }}</h3>
-                            <p>{{ jogador.num_participacoes_em_cruzamentos }}</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="lista-jogadores-container rbb">
+                <h3>Destaques RBB</h3>
+                <ul class="lista-jogadores">
+                    {% for jogador in destaques.red %}
+                    <li class="jogador-item">
+                        <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
+                        <div class="jogador-info">
+                            <h3>{{ jogador.nome_jogador }}</h3>
                         </div>
                     </li>
                     {% endfor %}
@@ -96,6 +108,110 @@
                 
             </div>
         </div>
+        <style>
+            .graficos {
+                display: flex;
+                flex: 1;
+                width: 100%;
+                height: fit-content;
+
+            }
+
+            .graficos-time-1,
+            .graficos-time-2 {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #ccc;
+                height: fit-content;
+            }
+        </style>
+        <div class="graficos">
+            <div class="graficos-time-1">
+                <div id="grafico-cruzamentos-1"></div>
+                <div id="grafico-desfechos-1"></div>
+            </div>
+            <div class="graficos-time-2">
+                <div id="grafico-cruzamentos-2"></div>
+                <div id="grafico-desfechos-2"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        google.charts.load('current', { 'packages': ['bar'] });
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            let destaques = '{{ destaques }}';
+            destaques = destaques.replaceAll("&#39;", '"');
+            destaques = JSON.parse(destaques);
+
+            let destaques_1 = destaques.pal;
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Jogador');
+            data.addColumn('number', 'Quantidade');
+
+            for (let i = 0; i < destaques_1.length; i++) {
+                let item = destaques_1[i];
+                data.addRow([item.nome_jogador, item.num_participacoes_em_quebras_linha]);
+            }
+
+            var options = {
+                chart: {
+                    title: 'Número de participações em rupturas Palmeiras',
+                    subtitle: '',
+                },
+                bars: 'horizontal',
+                width: 400,
+                height: 350,
+                legend: { position: 'none' },
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('grafico-cruzamentos-1'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+        google.charts.load('current', { 'packages': ['bar'] });
+
+        google.charts.setOnLoadCallback(drawChart2);
+
+        function drawChart2() {
+            let destaques = '{{ destaques }}';
+            destaques = destaques.replaceAll("&#39;", '"');
+            destaques = JSON.parse(destaques);
+
+            let destaques_2 = destaques.red;
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Jogador');
+            data.addColumn('number', 'Quantidade');
+
+            for (let i = 0; i < destaques_2.length; i++) {
+                let item = destaques_2[i];
+                data.addRow([item.nome_jogador, item.num_participacoes_em_quebras_linha]);
+            }
+
+            var options = {
+                chart: {
+                    title: 'Número de participações em rupturas Bragantino',
+                    subtitle: '',
+                },
+                bars: 'horizontal',
+                width: 400,
+                height: 350,
+                legend: { position: 'none' },
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('grafico-cruzamentos-2'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        </script>
 
 
 
