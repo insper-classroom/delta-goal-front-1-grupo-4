@@ -103,6 +103,26 @@
             <h2>Lances</h2>
             <h3>Lista de quebras</h3>
             <h4>Selecione um lance para visualizar</p>
+                <div class="scroll-list-container">
+                    <ul id="cruzamentos-list">
+                        <h4>Palmeiras:</h4>
+                                {% for quebra in quebras %}
+                                <li
+                                    onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}', '{{ quebra['nomes_jogadores_defesa'] }}')">
+                                    Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{
+                                    quebra['desfecho'] }} - Zona {{ quebra['zona_defesa'] }}
+                                </li>
+                                {% endfor %}
+                        <h4>Bragantino:</h4>
+                                {% for quebra1 in quebras1 %}
+                                <li
+                                    onclick="seekToTime('{{ quebra1['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra1['nome_jogador_ruptura'] }}', '{{ quebra1['nomes_jogadores_defesa'] }}')">
+                                    Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{
+                                    quebra1['desfecho'] }} - Zona {{ quebra1['zona_defesa'] }}
+                                </li>
+                                {% endfor %}
+                    </ul>
+                </div>
                 
         <video id="myVideo" width="630" height="480" controls>
             <source src="static/video/Jogo_Palmeiras_x_Bragantino.mp4" type="video/mp4">
@@ -128,6 +148,7 @@
             zoneElement.querySelector('.porcentagem-zona').style.display = 'none';
         }
     </script>
+    <script src="{{ url_for('static', filename='js/video.js') }}"></script>
     
   </body>
   </html>

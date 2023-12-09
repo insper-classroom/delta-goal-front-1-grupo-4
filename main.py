@@ -92,8 +92,10 @@ def quebras():
     destaques = destaques.json()["destaques"]
     # quebras = requests.get("http://localhost:5000/quebra_linha")
     # quebras_palmeiras = quebras.json()["quebras_linha"]["pal"]
+    quebra_palmeiras= data['time']['1']['rupturas']
+    quebra_bragantino= data['time']['5']['rupturas']
     porcentagem_quebra= calculate_line_break_percentages_v4(data, zones_of_interest_v4)
-    return render_template("quebras_de_linha.html",destaques=destaques, porcentagem_quebra= porcentagem_quebra)
+    return render_template("quebras_de_linha.html",destaques=destaques, porcentagem_quebra= porcentagem_quebra, quebras=quebra_palmeiras, quebras1=quebra_bragantino)
 
 @app.route("/partidas")
 def partidas():

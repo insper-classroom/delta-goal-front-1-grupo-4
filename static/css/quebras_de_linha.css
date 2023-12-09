@@ -156,6 +156,44 @@ input[type="number"] {
     text-align: center;
 }
 
+.scroll-list-container {
+    height: 200px;
+    /* ou a altura que você desejar */
+    overflow-y: auto;
+    display: flex;
+    width: 100%;
+    align-self: stretch;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.scroll-list-container ul {
+    padding: 0;
+    list-style: none;
+}
+
+.scroll-list-container li {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    width: 705px;
+    /* Largura da linha */
+}
+
+.scroll-list-container li:hover {
+    background-color: #a1ea92;
+    text-align: center;
+}
+
+/* Ataque e defesa */
+.player-list-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
 .nome-zona,
 .porcentagem-zona {
     position: absolute;
