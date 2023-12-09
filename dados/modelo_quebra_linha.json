@@ -1,0 +1,373 @@
+{
+    "time": {
+        "1": {
+            "id": 1,
+            "nome": "Palmeiras",
+            "liga": "Brasileirão Série A",
+            "logo": "https://api.deltagoal.ai/1/logo.png",
+            "zonas": {
+                "Zona 2": 3,
+                "Zona 1 - B": 4,
+                "desfechos_Zona 2": {
+                    "Forçou a saída de bola adversária": 1,
+                    "Passou a bola": 2
+                },
+                "desfechos_Zona 1 - B": {
+                    "Passe não concluído": 1,
+                    "Passou a bola": 1,
+                    "Foi desarmado": 1,
+                    "Não recebeu a bola": 1
+                }
+            },
+            "top_5": [
+                {
+                    "nome": "Vanderlan",
+                    "rupturas": 2
+                },
+                {
+                    "nome": "Rony",
+                    "rupturas": 2
+                },
+                {
+                    "nome": "R. Veiga",
+                    "rupturas": 1
+                },
+                {
+                    "nome": "Mayke",
+                    "rupturas": 1
+                },
+                {
+                    "nome": "Richard Rios",
+                    "rupturas": 1
+                }
+            ],
+            "desfechos": {
+                "Forçou a saída de bola adversária": 1,
+                "Passe não concluído": 1,
+                "Passou a bola": 3,
+                "Foi desarmado": 1,
+                "Não recebeu a bola": 1
+            },
+            "rupturas": [
+                {
+                    "inicio_ruptura": "00:04:56",
+                    "instante_ruptura": "00:04:57",
+                    "numero_jogador_ruptura": 6,
+                    "nome_jogador_ruptura": "Vanderlan",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 11,
+                    "nome_jogador_acompanhou": "Helinho",
+                    "numeros_jogadores_defesa": [
+                        11,
+                        34,
+                        4
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Helinho",
+                        "J. Hurtado",
+                        "Natan"
+                    ],
+                    "quantidade_jogadores_defesa": 3,
+                    "numero_jogador_posse_bola": 15,
+                    "nome_jogador_posse_bola": "G. Gomez",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 4,
+                    "desfecho": "Forçou a saída de bola adversária",
+                    "zona_defesa": "Zona 2"
+                },
+                {
+                    "inicio_ruptura": "00:10:12",
+                    "instante_ruptura": "00:10:12",
+                    "numero_jogador_ruptura": 10,
+                    "nome_jogador_ruptura": "Rony",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 7,
+                    "nome_jogador_acompanhou": "Eric Ramires",
+                    "numeros_jogadores_defesa": [
+                        4,
+                        7
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Natan",
+                        "Eric Ramires"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 23,
+                    "nome_jogador_posse_bola": "R. Veiga",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 3,
+                    "desfecho": "Passe não concluído",
+                    "zona_defesa": "Zona 1 - B"
+                },
+                {
+                    "inicio_ruptura": "00:15:01",
+                    "instante_ruptura": "00:15:02",
+                    "numero_jogador_ruptura": 23,
+                    "nome_jogador_ruptura": "R. Veiga",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 7,
+                    "nome_jogador_acompanhou": "Eric Ramires",
+                    "numeros_jogadores_defesa": [
+                        7,
+                        17
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Eric Ramires",
+                        "B. Goncalves"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 14,
+                    "nome_jogador_posse_bola": "Artur",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 4,
+                    "desfecho": "Passou a bola",
+                    "zona_defesa": "Zona 1 - B"
+                },
+                {
+                    "inicio_ruptura": "00:51:00",
+                    "instante_ruptura": "00:51:02",
+                    "numero_jogador_ruptura": 10,
+                    "nome_jogador_ruptura": "Rony",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 26,
+                    "nome_jogador_acompanhou": "E. Santos",
+                    "numeros_jogadores_defesa": [
+                        26,
+                        29
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "E. Santos",
+                        "Juninho Capixaba"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 23,
+                    "nome_jogador_posse_bola": "R. Veiga",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 2,
+                    "desfecho": "Passou a bola",
+                    "zona_defesa": "Zona 2"
+                },
+                {
+                    "inicio_ruptura": "00:52:27",
+                    "instante_ruptura": "00:52:28",
+                    "numero_jogador_ruptura": 12,
+                    "nome_jogador_ruptura": "Mayke",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 29,
+                    "nome_jogador_acompanhou": "Juninho Capixaba ",
+                    "numeros_jogadores_defesa": [
+                        29,
+                        17
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Juninho Capixaba",
+                        "B. Goncalves"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 14,
+                    "nome_jogador_posse_bola": "Artur",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 4,
+                    "desfecho": "Passou a bola",
+                    "zona_defesa": "Zona 2"
+                },
+                {
+                    "inicio_ruptura": "00:52:55",
+                    "instante_ruptura": "00:52:57",
+                    "numero_jogador_ruptura": 6,
+                    "nome_jogador_ruptura": "Vanderlan",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 34,
+                    "nome_jogador_acompanhou": "J. Hurtado",
+                    "numeros_jogadores_defesa": [
+                        11,
+                        34
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Helinho",
+                        "J. Hurtado"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 7,
+                    "nome_jogador_posse_bola": "Dudu",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 2,
+                    "desfecho": "Foi desarmado",
+                    "zona_defesa": "Zona 1 - B"
+                },
+                {
+                    "inicio_ruptura": "01:32:36",
+                    "instante_ruptura": "01:32:37",
+                    "numero_jogador_ruptura": 27,
+                    "nome_jogador_ruptura": "Richard Rios",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 26,
+                    "nome_jogador_acompanhou": "E. Santos",
+                    "numeros_jogadores_defesa": [
+                        28,
+                        29,
+                        26
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Vitor Hugo",
+                        "Juninho Capixaba",
+                        "E. Santos"
+                    ],
+                    "quantidade_jogadores_defesa": 3,
+                    "numero_jogador_posse_bola": 11,
+                    "nome_jogador_posse_bola": "Tabata",
+                    "jogador_recebeu_bola": false,
+                    "tempo_ate_receber_bola": null,
+                    "desfecho": "Não recebeu a bola",
+                    "zona_defesa": "Zona 1 - B"
+                }
+            ]
+        },
+        "5": {
+            "id": 5,
+            "nome": "Red Bull Bragantino",
+            "liga": "Brasileirão Série A",
+            "logo": "https://api.deltagoal.ai/5/logo.png",
+            "zonas": {
+                "Zona 2": 2,
+                "Zona 1 - B": 1,
+                "Zona 1 - A": 1,
+                "desfechos_Zona 2": {
+                    "Foi derrubado com a bola": 1,
+                    "Forçou a saída de bola adversária": 1
+                },
+                "desfechos_Zona 1 - B": {
+                    "Forçou a saída de bola adversária": 1
+                },
+                "desfechos_Zona 1 - A": {
+                    "Foi desarmado": 1
+                }
+            },
+            "top_5": [
+                {
+                    "nome": "Helinho",
+                    "rupturas": 1
+                },
+                {
+                    "nome": "J. Hurtado",
+                    "rupturas": 1
+                },
+                {
+                    "nome": "L. Evangelista",
+                    "rupturas": 1
+                },
+                {
+                    "nome": "B. Goncalves ",
+                    "rupturas": 1
+                }
+            ],
+            "desfechos": {
+                "Foi derrubado com a bola": 1,
+                "Forçou a saída de bola adversária": 2,
+                "Foi desarmado": 1
+            },
+            "rupturas": [
+                {
+                    "inicio_ruptura": "00:07:04",
+                    "instante_ruptura": "00:07:06",
+                    "numero_jogador_ruptura": 11,
+                    "nome_jogador_ruptura": "Helinho",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 6,
+                    "nome_jogador_acompanhou": "Vanderlan",
+                    "numeros_jogadores_defesa": [
+                        6,
+                        15
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Vanderlan",
+                        "G. Gomez"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 34,
+                    "nome_jogador_posse_bola": "J. Hurtado",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 3,
+                    "desfecho": "Foi derrubado com a bola",
+                    "zona_defesa": "Zona 2"
+                },
+                {
+                    "inicio_ruptura": "00:08:32",
+                    "instante_ruptura": "00:08:32",
+                    "numero_jogador_ruptura": 34,
+                    "nome_jogador_ruptura": "J. Hurtado",
+                    "foi_acompanhado_adversario": false,
+                    "numero_jogador_acompanhou": null,
+                    "nome_jogador_acompanhou": null,
+                    "numeros_jogadores_defesa": [
+                        7,
+                        25,
+                        6
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Dudu",
+                        "G. Menino",
+                        "Vanderlan"
+                    ],
+                    "quantidade_jogadores_defesa": 3,
+                    "numero_jogador_posse_bola": 26,
+                    "nome_jogador_posse_bola": "E. Santos",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 2,
+                    "desfecho": "Forçou a saída de bola adversária",
+                    "zona_defesa": "Zona 2"
+                },
+                {
+                    "inicio_ruptura": "00:21:22",
+                    "instante_ruptura": "00:21:25",
+                    "numero_jogador_ruptura": 8,
+                    "nome_jogador_ruptura": "L. Evangelista",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 25,
+                    "nome_jogador_acompanhou": "G. Menino",
+                    "numeros_jogadores_defesa": [
+                        25,
+                        6
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "G. Menino",
+                        "Vanderlan"
+                    ],
+                    "quantidade_jogadores_defesa": 2,
+                    "numero_jogador_posse_bola": 11,
+                    "nome_jogador_posse_bola": "Helinho",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 3,
+                    "desfecho": "Forçou a saída de bola adversária",
+                    "zona_defesa": "Zona 1 - B"
+                },
+                {
+                    "inicio_ruptura": "00:37:42",
+                    "instante_ruptura": "00:37:44",
+                    "numero_jogador_ruptura": 17,
+                    "nome_jogador_ruptura": "B. Goncalves ",
+                    "foi_acompanhado_adversario": true,
+                    "numero_jogador_acompanhou": 35,
+                    "nome_jogador_acompanhou": "Fabinho",
+                    "numeros_jogadores_defesa": [
+                        12,
+                        23,
+                        35
+                    ],
+                    "nomes_jogadores_defesa": [
+                        "Mayke",
+                        "R. Veiga",
+                        "Fabinho"
+                    ],
+                    "quantidade_jogadores_defesa": 3,
+                    "numero_jogador_posse_bola": 29,
+                    "nome_jogador_posse_bola": "Juninho Capixaba ",
+                    "jogador_recebeu_bola": true,
+                    "tempo_ate_receber_bola": 2,
+                    "desfecho": "Foi desarmado",
+                    "zona_defesa": "Zona 1 - A"
+                }
+            ]
+        }
+    }
+}

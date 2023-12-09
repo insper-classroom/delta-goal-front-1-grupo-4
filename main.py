@@ -6,6 +6,7 @@ import os
 import re
 import requests
 from bson import json_util
+from zonas import calculate_line_break_percentages_v4,data, zones_of_interest_v4
 
 app = Flask("Delta_Goal_Front")
 app.config["SECRET_KEY"] = "dg123"
@@ -75,13 +76,14 @@ def cruzamentos():
     desfechos = desfechos["desfechos"]
     cruzamentos = requests.get("http://localhost:5000/cruzamentos")
     cruzamentos_palmeiras = cruzamentos.json()["cruzamentos"]["pal"]
+    cruzamentos_bragantino = cruzamentos.json()['cruzamentos']['red']
     return render_template(
         "cruzamentos.html",
         desfechos=desfechos,
         destaques=destaques,
         porcentagens=zone_percentages,
         porcentagens_bragan=zone_percentages_bragan,
-        cruzamentos=cruzamentos_palmeiras,
+        cruzamentos=cruzamentos_palmeiras, cruzamentos1=cruzamentos_bragantino,
     )
 
 @app.route("/quebras")
@@ -90,7 +92,8 @@ def quebras():
     destaques = destaques.json()["destaques"]
     # quebras = requests.get("http://localhost:5000/quebra_linha")
     # quebras_palmeiras = quebras.json()["quebras_linha"]["pal"]
-    return render_template("quebras_de_linha.html",destaques=destaques)
+    porcentagem_quebra= calculate_line_break_percentages_v4(data, zones_of_interest_v4)
+    return render_template("quebras_de_linha.html",destaques=destaques, porcentagem_quebra= porcentagem_quebra)
 
 @app.route("/partidas")
 def partidas():

@@ -64,8 +64,48 @@ def destaque_jogadores(dados,time):
     return destaque_n_jogadores
 
 
-with open('modelo_cruzamentos.json', 'r', encoding='utf-8') as file:
-    data = json.load(file)
+def calculate_line_break_percentages_v4(json_data, zones_of_interest):
+    """
+    Calculate the percentage of line breaks that occurred in each of the specified zones in the provided JSON data.
+    For the second team in the JSON data, zones 'Zona 1 - A' and 'Zona 1 - B' are treated as 'Zona 3 - A' and 'Zona 3 - B' respectively.
 
-p=destaque_jogadores(data,'5')
-print(p)
+    :param json_data: A JSON object containing the data.
+    :param zones_of_interest: A list of zone names in which the line breaks are to be calculated.
+    :return: A dictionary with the zone names as keys and their respective line break percentages as values.
+    """
+    # Initialize a dictionary to count the line breaks in each zone
+    line_breaks = {zone: 0 for zone in zones_of_interest}
+
+    # Track the team count
+    team_count = 0
+
+    # Iterate over the teams and their zones to count the line breaks
+    for team_id, team_data in json_data["time"].items():
+        team_count += 1
+        for zone, count in team_data["zonas"].items():
+            # For the first team, count normally
+            if team_count == 1:
+                if zone in zones_of_interest:
+                    line_breaks[zone] += count
+            # For the second team, adjust the zones as specified
+            else:
+                if zone == "Zona 1 - A":
+                    line_breaks["Zona 3 - A"] += count
+                elif zone == "Zona 1 - B":
+                    line_breaks["Zona 3 - B"] += count
+                elif zone in zones_of_interest:
+                    line_breaks[zone] += count
+
+    # Calculate the total number of line breaks
+    total_line_breaks = sum(line_breaks.values())
+
+    # Calculate the percentage of line breaks in each zone
+    percentages = {zone: (count / total_line_breaks * 100) if total_line_breaks > 0 else 0 for zone, count in line_breaks.items()}
+
+    return percentages
+
+# Example usage of the revised function
+zones_of_interest_v4 = ["Zona 1 - A", "Zona 1 - B", "Zona 2", "Zona 3 - A", "Zona 3 - B"]
+with open('dados/modelo_quebra_linha.json', 'r', encoding='utf-8') as file:
+    data = json.load(file)
+percentages_v4 = calculate_line_break_percentages_v4(data, zones_of_interest_v4)
