@@ -210,7 +210,42 @@ input[type="number"] {
 .porcentagem-zona {
     opacity: 0;
 }
+.video-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    /* Ajuste conforme necessário */
+}
 
+.video-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.video-btn:hover {
+    background-color: #e2e2e2;
+}
+
+.video-btn#playPause {
+    font-weight: bold;
+}
+
+.campo-futebol,
+.video-container {
+    max-height: 100%;
+    display: block;
+    /* Remove espaços em branco abaixo da imagem */
+
+}
 .zona:hover .nome-zona {
     opacity: 0;
 }
@@ -264,12 +299,11 @@ input[type="number"] {
 .left-container,
 .right-container {
     flex: 1;
-    /* Ambos tomarão 50% do espaço disponível */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    padding: 0 100px;
 }
 
 .campo-futebol,
