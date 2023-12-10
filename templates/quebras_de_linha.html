@@ -46,7 +46,7 @@
     
     async function drawChart5() {
         
-        var response = await fetch("http://localhost:5000/bragantino__desfechos")
+        var response = await fetch("http://localhost:5000/bragantino_desfechos")
         response = await response.json()
         let dados = response
         console.log(dados)
@@ -69,6 +69,7 @@
     }
     
     window.onload = drawChart5()
+
 
   </script>
 
