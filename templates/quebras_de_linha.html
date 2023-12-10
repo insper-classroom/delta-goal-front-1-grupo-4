@@ -319,7 +319,7 @@
                 <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
                     {% for quebra in quebras %}
-                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}', '{{ quebra['nomes_jogadores_defesa'] | tojson | safe }}')" style="display: list-item;" >
+                    <li class="quebra" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}', '{{ quebra['nomes_jogadores_defesa'] | tojson | safe }}')" style="display: list-item;">
                         Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
                     </li>
                     {% endfor %}
@@ -377,9 +377,8 @@
 
         var jogadoresDefendendo = JSON.parse(jogadoresDefendendoJson);
         var listaDefendendo = document.getElementById('jogadores-defendendo-list');
-        istaDefendendo.innerHTML = '';
-
-        jogadoresDefendendo.forEach(jogador => {
+        listaDefendendo.innerHTML = '';
+        jogadoresDefendendo.forEach(function(jogador) {
         var liDefendendo = document.createElement('li');
         liDefendendo.textContent = jogador;
         listaDefendendo.appendChild(liDefendendo);
