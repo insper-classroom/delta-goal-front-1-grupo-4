@@ -353,11 +353,15 @@
                 <h3>Jogadores Atacando</h3>
                 <ul id="jogadores-atacando-list"></ul>
             </div>
-            
+
             <div class="jogadores-defendendo">
-                <h3>Jogadores Defendendo</h3>
-                <ul id="jogadores-defendendo-list"></ul>
-            </div>
+        <h3>Jogadores Defendendo</h3>
+        <ul id="jogadores-defendendo-list">
+            {% for grupo_defensores in defensores_palmeiras %}
+                <li>{{ grupo_defensores | join(', ') }}</li>
+            {% endfor %}
+        </ul>
+    </div>
         </div>
     </div>
     

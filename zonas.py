@@ -119,4 +119,13 @@ def aaaa(data):
     dic_g['desfechos']= dic
     dic_g['ok']= True
     return dic_g
-print(aaaa(data))
+
+def quebra_linha(dados,time):
+    quebra_linha = dados["time"][time]["rupturas"]
+    return quebra_linha 
+
+def get_defensores(dados, time):
+    rupturas = quebra_linha(dados, time)
+    defensores = [ruptura["nomes_jogadores_defesa"] for ruptura in rupturas]
+    return defensores
+print(get_defensores(data,'1'))

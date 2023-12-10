@@ -6,7 +6,7 @@ import os
 import re
 import requests
 from bson import json_util
-from zonas import calculate_line_break_percentages_v4,data, zones_of_interest_v4,aaaa
+from zonas import calculate_line_break_percentages_v4,data, zones_of_interest_v4,aaaa, get_defensores
 
 app = Flask("Delta_Goal_Front")
 app.config["SECRET_KEY"] = "dg123"
@@ -96,7 +96,9 @@ def quebras():
     quebra_bragantino= data['time']['5']['rupturas']
     desfechos=aaaa(data)
     porcentagem_quebra= calculate_line_break_percentages_v4(data, zones_of_interest_v4)
-    return render_template("quebras_de_linha.html",destaques=destaques, porcentagem_quebra= porcentagem_quebra, quebras=quebra_palmeiras, quebras1=quebra_bragantino, desfechos=desfechos)
+    defensores_palmeiras = get_defensores(data, '1')
+    defensores_bragantino = get_defensores(data, '5')
+    return render_template("quebras_de_linha.html",destaques=destaques, porcentagem_quebra= porcentagem_quebra, quebras=quebra_palmeiras, quebras1=quebra_bragantino, desfechos=desfechos,defensores_palmeiras=defensores_palmeiras, defensores_bragantino=defensores_bragantino)
 
 @app.route("/partidas")
 def partidas():
