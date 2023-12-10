@@ -315,23 +315,28 @@
             </div>
             <h4>Selecione um lance para visualizar</h4>
             <div class="scroll-list-container">
-                <ul id="cruzamentos-list">
                 <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
-                    {% for quebra in quebras %}
-                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}')" style="display: list-item;" >
-                        Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
-                    </li>
-                    {% endfor %}
+                    <ul id="cruzamentos-list">
+                        {% for quebra in quebras %}
+                        <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}')">
+                            Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
                 <div class="Filtro-Bragantino" id="Filtro-Bragantino">
                     <h4>Bragantino:</h4>
-                    {% for quebra1 in quebras1 %}
-                    <li class="quebra" data-time="{{ quebra1['time'] }}" data-desfecho="{{ quebra1['desfecho'] }}" data-zona="{{ quebra1['zona_defesa'] }}" onclick="seekToTime('{{ quebra1['inicio_ruptura'] | convert_to_seconds }}','{{ quebra1['nome_jogador_ruptura'] }}')" style="display: list-item;">
-                        Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{ quebra1['desfecho'] }} - {{ quebra1['zona_defesa'] }}
-                    </li>
-                    {% endfor %}
+                    <ul id="cruzamentos-list">
+                        {% for quebra1 in quebras1 %}
+                        <li class="quebra" data-time="{{ quebra1['time'] }}" data-desfecho="{{ quebra1['desfecho'] }}" data-zona="{{ quebra1['zona_defesa'] }}" onclick="seekToTime('{{ quebra1['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra1['nome_jogador_ruptura'] }}')">
+                            Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{ quebra1['desfecho'] }} - {{ quebra1['zona_defesa'] }}
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
+            </div>
+            
                     <!-- Repita para Bragantino -->
                 </ul>
             </div>
