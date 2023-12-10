@@ -43,6 +43,31 @@
     }
     
     window.onload = drawChart()
+    async function drawChart5() {
+
+        var response = await fetch("http://localhost:5000/bragantino_desfechos")
+        response = await response.json()
+        let dados = response
+        console.log(dados)
+        let keys = Object.keys(dados)
+        const list = [["Desfecho", "Rupturas"]]
+
+        for (let i = 0; i < keys.length; i++) {
+            list.push([String(keys[i]),    dados[keys[i]]])
+        }
+        var data = google.visualization.arrayToDataTable(list);
+        var options = {
+            title: 'Desfechos Bragantino'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+
+        chart.draw(data, options);
+
+        }
+
+    window.onload = drawChart5()
     
   </script>
 
@@ -268,6 +293,7 @@
 
         </script>
         <div id="piechart" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
+        <div id="piechart1" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
 
 
 
