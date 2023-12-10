@@ -317,24 +317,26 @@
             <div class="scroll-list-container">
                 <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
-                    <ul id="cruzamentos-list">
+                    <ul id="cruzamentos-list-palmeiras">
                         {% for quebra in quebras %}
-                        <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}')">
-                            Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
+                        <li class="quebra">
+                            Jogador: {{ quebra['nome_jogador_ruptura'] }} - Desfecho: {{ quebra['desfecho'] }} - Zona: {{ quebra['zona_defesa'] }}
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div class="Filtro-Bragantino" id="Filtro-Bragantino">
                     <h4>Bragantino:</h4>
-                    <ul id="cruzamentos-list">
-                        {% for quebra1 in quebras1 %}
-                        <li class="quebra" data-time="{{ quebra1['time'] }}" data-desfecho="{{ quebra1['desfecho'] }}" data-zona="{{ quebra1['zona_defesa'] }}" onclick="seekToTime('{{ quebra1['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra1['nome_jogador_ruptura'] }}')">
-                            Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{ quebra1['desfecho'] }} - {{ quebra1['zona_defesa'] }}
+                    <ul id="cruzamentos-list-bragantino">
+                        {% for quebra in quebras1 %}
+                        <li class="quebra">
+                            Jogador: {{ quebra['nome_jogador_ruptura'] }} - Desfecho: {{ quebra['desfecho'] }} - Zona: {{ quebra['zona_defesa'] }}
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
+            </div>
+            
             </div>
             
                     <!-- Repita para Bragantino -->
