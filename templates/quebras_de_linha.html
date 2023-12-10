@@ -32,7 +32,7 @@
         }
         var data = google.visualization.arrayToDataTable(list);
         var options = {
-            title: 'Desfechos'
+            title: 'Desfechos Palmeiras'
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -167,9 +167,9 @@
 
         google.charts.load('current', { 'packages': ['bar'] });
 
-        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawChart3);
 
-        function drawChart() {
+        function drawChart3() {
             let destaques = '{{ destaques }}';
             destaques = destaques.replaceAll("&#39;", '"');
             destaques = JSON.parse(destaques);
@@ -235,66 +235,13 @@
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
         google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart3);
-
-        function drawChart3() {
-            let desfechos = '{{ desfechos }}';
-            desfechos = desfechos.replaceAll("&#39;", '"');
-            desfechos = JSON.parse(desfechos);
-
-            let desfechosTime1 = desfechos.pal;
-
-            let data = [['Desfecho', 'Quantidade']];
-            for (let desfecho in desfechosTime1) {
-                data.push([desfecho, desfechosTime1[desfecho]]);
-            }
-
-            var dataChart = google.visualization.arrayToDataTable(data);
-
-            var options = {
-                title: 'Distribuição de Desfechos (pal)',
-                width: 400,
-                height: 350,
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('grafico-desfechos-1'));
-            chart.draw(dataChart, options);
-        }
-
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart4);
-
-        function drawChart4() {
-
-            let desfechos = '{{ desfechos }}'
-            desfechos = desfechos.replaceAll("&#39;", '"');
-            desfechos = JSON.parse(desfechos)
-
-            let desfechosTime1 = desfechos.red;
-
-            // Transforma o dicionário em um array de arrays
-            let data = [['Desfecho', 'Quantidade']];
-            for (let desfecho in desfechosTime1) {
-                data.push([desfecho, desfechosTime1[desfecho]]);
-            }
-
-            var dataChart = google.visualization.arrayToDataTable(data);
-
-            var options = {
-                title: 'Distribuição de Desfechos (brag)',
-                width: 400,
-                height: 350,
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('grafico-desfechos-2'));
-            chart.draw(dataChart, options);
-        }
 
 
         </script>
-        <div id="piechart" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
-        <div id="piechart1" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
-
+        <div class="pup">
+            <div id="piechart" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
+            <div id="piechart1" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
+        </div>
 
 
         <div class="right-container">

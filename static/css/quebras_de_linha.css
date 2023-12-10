@@ -645,6 +645,18 @@ p {
         width: 100%;
         margin: 10px 0; /* Increase spacing for vertical layout */
 }
+.pup {
+    display: flex;         /* Enables flexbox layout */
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center;    /* Aligns items vertically in the center */
+}
+
+#piechart, #piechart1 {
+    width: 500px;          /* Width of each chart */
+    height: 400px;         /* Height of each chart */
+    margin: 50px;          /* Margin around each chart */
+    color: black;          /* Text color inside the charts */
+}
 
 
 @media screen and (max-width: 768px) {
