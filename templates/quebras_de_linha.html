@@ -44,33 +44,6 @@
     
     window.onload = drawChart()
     
-    async function drawChart5() {
-        
-        var response = await fetch("http://localhost:5000/bragantino_desfechos")
-        response = await response.json()
-        let dados = response
-        console.log(dados)
-        let keys = Object.keys(dados)
-        const list = [["Desfecho", "Rupturas"]]
-        
-        for (let i = 0; i < keys.length; i++) {
-            list.push([String(keys[i]),    dados[keys[i]]])
-        }
-        var data = google.visualization.arrayToDataTable(list);
-        var options = {
-            title: 'Desfechos Bragantino'
-        };
-        
-        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
-        
-        
-        chart.draw(data, options);
-        
-    }
-    
-    window.onload = drawChart5()
-
-
   </script>
 
 
@@ -295,7 +268,6 @@
 
         </script>
         <div id="piechart" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
-        <div id="piechart1" style="width: 500px; height: 400px; margin: 50px; color:black;"></div>
 
 
 
@@ -347,7 +319,7 @@
                 <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
                     {% for quebra in quebras %}
-                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ lance['inicio_ruptura'] | convert_to_seconds }}', '{{ lance['nome_jogador_ruptura'] }}', '{{ lance['nomes_jogadores_defesa'] | tojson | safe }}')">
+                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}')" style="display: list-item;" >
                         Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
                     </li>
                     {% endfor %}
@@ -381,35 +353,32 @@
                 <h3>Jogadores Atacando</h3>
                 <ul id="jogadores-atacando-list"></ul>
             </div>
-
-            <div class="jogadores-defendendo">
-                <h3>Jogadores Defendendo</h3>
-                <ul id="jogadores-defendendo-list"></ul>
-            </div>
+            
         </div>
     </div>
     
     <!-- Script para Controle do Vídeo -->
     <script>
-        function seekToTime(timeInSeconds, nomeJogador, jogadoresDefendendoJson) {
-            var video = document.getElementById('myVideo');
-            video.currentTime = timeInSeconds;
-            
-            var listaAtacando = document.getElementById('jogadores-atacando-list');
-            listaAtacando.innerHTML = '';
-            var liAtacando = document.createElement('li');
-            liAtacando.textContent = nomeJogador;
-            listaAtacando.appendChild(liAtacando);
+        function seekToTime(timeInSeconds, nomeJogador) {
+        var video = document.getElementById('myVideo');
+        video.currentTime = timeInSeconds;
+        
+        var listaAtacando = document.getElementById('jogadores-atacando-list');
+        listaAtacando.innerHTML = ''; // Limpa a lista atual
 
-            var jogadoresDefendendo = JSON.parse(jogadoresDefendendoJson);
-            var listaDefendendo = document.getElementById('jogadores-defendendo-list');
-            listaDefendendo.innerHTML = '';
-            jogadoresDefendendo.forEach(function(jogador) {
-                var liDefendendo = document.createElement('li');
-                liDefendendo.textContent = jogador;
-                listaDefendendo.appendChild(liDefendendo);
-    });
-}
+        // Adiciona o nome do jogador à lista
+        var li = document.createElement('li');
+        li.textContent = nomeJogador;
+        listaAtacando.appendChild(li);
+
+        // var listaDefendendo = document.getElementById('jogadores-defendendo-list');
+        // listaDefendendo.innerHTML = ''; // Limpa a lista atual
+        // jogadoresDef.split(',').forEach(function(jogador) {
+        //     var li = document.createElement('li');
+        //     li.textContent = jogador.trim();
+        //     listaDefendendo.appendChild(li);
+        // });
+    }
         window.addEventListener('load', function() {
             // Funções para controle do vídeo
             function retroceder(segundos) {
