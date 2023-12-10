@@ -118,7 +118,7 @@
                     <h3>Destaques SEP</h3>
                     <ul class="lista-jogadores">
                         <!-- jogadores em destaques -->
-                        {% for jogador in destaques.pal %}
+                        {% for jogador in destaques.pal[:5] %}
                         <li class="jogador-item">
                             <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
                             <div class="jogador-info">
@@ -133,7 +133,7 @@
                 <div class="lista-jogadores-container rbb">
                     <h3>Destaques RBB</h3>
                     <ul class="lista-jogadores">
-                        {% for jogador in destaques.red %}
+                        {% for jogador in destaques.red[:5] %}
                         <li class="jogador-item">
                             <!-- <img src="{{ url_for('static', filename=jogador.imagem) }}" alt="{{ jogador.nome }}"> -->
                             <div class="jogador-info">
@@ -192,7 +192,7 @@
                 data.addColumn('string', 'Jogador');
                 data.addColumn('number', 'Quantidade');
 
-                for (let i = 0; i < destaques_1.length; i++) {
+                for (let i = 0; i < 5; i++) {
                     let item = destaques_1[i];
                     data.addRow([item.nome_jogador, item.num_participacoes_em_cruzamentos]);
                 }
@@ -227,7 +227,7 @@
                 data.addColumn('string', 'Jogador');
                 data.addColumn('number', 'Quantidade');
 
-                for (let i = 0; i < destaques_2.length; i++) {
+                for (let i = 0; i < 5; i++) {
                     let item = destaques_2[i];
                     data.addRow([item.nome_jogador, item.num_participacoes_em_cruzamentos]);
                 }

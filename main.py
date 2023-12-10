@@ -77,6 +77,7 @@ def cruzamentos():
     cruzamentos = requests.get("http://localhost:5000/cruzamentos")
     cruzamentos_palmeiras = cruzamentos.json()["cruzamentos"]["pal"]
     cruzamentos_bragantino = cruzamentos.json()['cruzamentos']['red']
+    print(destaques)
     return render_template(
         "cruzamentos.html",
         desfechos=desfechos,
