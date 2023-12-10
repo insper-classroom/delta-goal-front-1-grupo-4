@@ -319,7 +319,7 @@
                 <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
                     {% for quebra in quebras %}
-                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" style="display: list-item;">
+                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}')" style="display: list-item;">
                         Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
                     </li>
                     {% endfor %}
@@ -327,7 +327,7 @@
                 <div class="Filtro-Bragantino" id="Filtro-Bragantino">
                     <h4>Bragantino:</h4>
                     {% for quebra1 in quebras1 %}
-                    <li class="quebra" data-time="{{ quebra1['time'] }}" data-desfecho="{{ quebra1['desfecho'] }}" data-zona="{{ quebra1['zona_defesa'] }}" style="display: list-item;">
+                    <li class="quebra" data-time="{{ quebra1['time'] }}" data-desfecho="{{ quebra1['desfecho'] }}" data-zona="{{ quebra1['zona_defesa'] }}" onclick="seekToTime('{{ quebra1['inicio_ruptura'] | convert_to_seconds }}')" style="display: list-item;">
                         Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{ quebra1['desfecho'] }} - {{ quebra1['zona_defesa'] }}
                     </li>
                     {% endfor %}
@@ -351,37 +351,38 @@
     </div>
     <!-- Script para Controle do Vídeo -->
     <script>
-        function seekToTime(seconds) {
-            var video = document.getElementById('myVideo');
-            if (video) {
-                video.currentTime = parseInt(seconds, 10);
-            }
-        }
-
-        function retroceder(segundos) {
-            var video = document.getElementById("myVideo");
-            if (video) {
+        function seekToTime(timeInSeconds) {
+        var video = document.getElementById('myVideo');
+        video.currentTime = timeInSeconds;
+    }
+        window.addEventListener('load', function() {
+            // Funções para controle do vídeo
+            function retroceder(segundos) {
+                var video = document.getElementById("myVideo");
                 video.currentTime = Math.max(video.currentTime - segundos, 0);
             }
-        }
 
-        function avançar(segundos) {
-            var video = document.getElementById("myVideo");
-            if (video) {
+            function avançar(segundos) {
+                var video = document.getElementById("myVideo");
                 video.currentTime = Math.min(video.currentTime + segundos, video.duration);
             }
-        }
 
-        function playPause() {
-            var video = document.getElementById("myVideo");
-            if (video) {
+            function playPause() {
+                var video = document.getElementById("myVideo");
                 if (video.paused) {
                     video.play();
                 } else {
                     video.pause();
                 }
             }
-        }
+
+            // Adicionando os event listeners para os botões de controle do vídeo
+            document.getElementById('retroceder5').addEventListener('click', function() { retroceder(5); });
+            document.getElementById('retroceder1').addEventListener('click', function() { retroceder(1); });
+            document.getElementById('playPause').addEventListener('click', playPause);
+            document.getElementById('avançar5').addEventListener('click', function() { avançar(5); });
+            document.getElementById('avançar1').addEventListener('click', function() { avançar(1); });
+        });
     </script>
     <script>
         function showPercentage(zoneElement) {
