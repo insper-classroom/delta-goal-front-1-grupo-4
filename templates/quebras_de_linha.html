@@ -346,7 +346,7 @@
                 <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
                     {% for quebra in quebras %}
-                    <li class="quebra" onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}', '{{ quebra['nome_jogador_ruptura'] }}', '{{ quebra['nomes_jogadores_defesa'] | tojson | safe }}')" style="display: list-item;">
+                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" onclick="seekToTime('{{ lance['inicio_ruptura'] | convert_to_seconds }}', '{{ lance['nome_jogador_ruptura'] }}', '{{ lance['nomes_jogadores_defesa'] | tojson | safe }}')">
                         Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
                     </li>
                     {% endfor %}
@@ -391,26 +391,24 @@
     <!-- Script para Controle do Vídeo -->
     <script>
         function seekToTime(timeInSeconds, nomeJogador, jogadoresDefendendoJson) {
-        var video = document.getElementById('myVideo');
-        video.currentTime = timeInSeconds;
-        
-        var listaAtacando = document.getElementById('jogadores-atacando-list');
-        listaAtacando.innerHTML = ''; // Limpa a lista atual
+            var video = document.getElementById('myVideo');
+            video.currentTime = timeInSeconds;
+            
+            var listaAtacando = document.getElementById('jogadores-atacando-list');
+            listaAtacando.innerHTML = '';
+            var liAtacando = document.createElement('li');
+            liAtacando.textContent = nomeJogador;
+            listaAtacando.appendChild(liAtacando);
 
-        // Adiciona o nome do jogador à lista
-        var li = document.createElement('li');
-        li.textContent = nomeJogador;
-        listaAtacando.appendChild(li);
-
-        var jogadoresDefendendo = JSON.parse(jogadoresDefendendoJson);
-        var listaDefendendo = document.getElementById('jogadores-defendendo-list');
-        listaDefendendo.innerHTML = '';
-        jogadoresDefendendo.forEach(function(jogador) {
-        var liDefendendo = document.createElement('li');
-        liDefendendo.textContent = jogador;
-        listaDefendendo.appendChild(liDefendendo);
+            var jogadoresDefendendo = JSON.parse(jogadoresDefendendoJson);
+            var listaDefendendo = document.getElementById('jogadores-defendendo-list');
+            listaDefendendo.innerHTML = '';
+            jogadoresDefendendo.forEach(function(jogador) {
+                var liDefendendo = document.createElement('li');
+                liDefendendo.textContent = jogador;
+                listaDefendendo.appendChild(liDefendendo);
     });
-
+}
         // var listaDefendendo = document.getElementById('jogadores-defendendo-list');
         // listaDefendendo.innerHTML = ''; // Limpa a lista atual
         // jogadoresDef.split(',').forEach(function(jogador) {
