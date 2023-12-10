@@ -274,21 +274,61 @@
         <div class="right-container">
             <h2>Lances</h2>
             <h3>Lista de quebras</h3>
+
+            <!-- Filtros -->
+            <form method="POST" action=""
+            <div class="filtros">
+                <form action="/quebras" method="GET">
+                    <div class="filtros-container">
+                        <div class="filtro">
+                            <label for="time">Time</label>
+                            <select name="time" id="time" onchange="filterTimeQuebras()">
+                                <option value="all">Todos</option>
+                                <option value="Palmeiras">Palmeiras</option>
+                                <option value="Bragantino">Bragantino</option>
+                            </select>
+                        </div>
+                        <div class="filtro">
+                            <label for="desfecho">Desfecho</label>
+                            <select name="desfecho" id="desfecho" onchange="filterQuebras()">
+                                <option value="all">Todos</option>
+                                <option value="Forçou a saída de bola adversária">Forçou a saída de bola adversária</option>
+                                <option value="Passe não concluído">Passe não concluído</option>
+                                <option value="Passou a bola">Passou a bola</option>
+                                <option value="Foi desarmado">Foi desarmado</option>
+                                <option value="Não recebeu a bola">Não recebeu a bola</option>
+                                <option value="Foi derrubado com a bola">Foi derrubado com a bola</option>
+
+                            </select>
+                        </div>
+                        <div class="filtro">
+                            <label for="zona">Zona</label>
+                            <select name="zona" id="zona" onchange="filterQuebras()">
+                                <option value="all">Todos</option>
+                                <option value="Zona 2">Zona 2</option>
+                                <option value="Zona 1 - B">Zona 1 - B</option>
+                                <option value="Zona 1 - A">Zona 1 - A</option>
+                            </select>
+                        </div>
             <h4>Selecione um lance para visualizar</h4>
             <div class="scroll-list-container">
                 <ul id="cruzamentos-list">
+                <div class="Filtro-Palmeiras" id="Filtro-Palmeiras">
                     <h4>Palmeiras:</h4>
                     {% for quebra in quebras %}
-                    <li onclick="seekToTime('{{ quebra['inicio_ruptura'] | convert_to_seconds }}')">
-                        Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - Zona {{ quebra['zona_defesa'] }}
+                    <li class="quebra" data-time="{{ quebra['time'] }}" data-desfecho="{{ quebra['desfecho'] }}" data-zona="{{ quebra['zona_defesa'] }}" style="display: list-item;">
+                        Quebra #{{ loop.index }} - {{ quebra['instante_inicial'] }} - {{ quebra['desfecho'] }} - {{ quebra['zona_defesa'] }}
                     </li>
                     {% endfor %}
+                </div>
+                <div class="Filtro-Bragantino" id="Filtro-Bragantino">
                     <h4>Bragantino:</h4>
                     {% for quebra1 in quebras1 %}
-                    <li onclick="seekToTime('{{ quebra1['inicio_ruptura'] | convert_to_seconds }}')">
-                        Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{ quebra1['desfecho'] }} - Zona {{ quebra1['zona_defesa'] }}
+                    <li class="quebra" data-time="{{ quebra1['time'] }}" data-desfecho="{{ quebra1['desfecho'] }}" data-zona="{{ quebra1['zona_defesa'] }}" style="display: list-item;">
+                        Quebra #{{ loop.index }} - {{ quebra1['instante_inicial'] }} - {{ quebra1['desfecho'] }} - {{ quebra1['zona_defesa'] }}
                     </li>
                     {% endfor %}
+                </div>
                     <!-- Repita para Bragantino -->
                 </ul>
             </div>
@@ -351,6 +391,49 @@
             zoneElement.querySelector('.porcentagem-zona').style.display = 'none';
         }
     </script>
+
+    <script>
+        function filterTimeQuebras() {
+            var timeFilter = document.getElementById('time').value;
+
+            var palmeiras = document.getElementById('Filtro-Palmeiras');
+            var bragantino = document.getElementById('Filtro-Bragantino');
+
+            if (timeFilter === 'Palmeiras') {
+                palmeiras.style.display = '';
+                bragantino.style.display = 'none';
+            } else if (timeFilter === 'Bragantino') {
+                palmeiras.style.display = 'none';
+                bragantino.style.display = '';
+            } else {
+                palmeiras.style.display = '';
+                bragantino.style.display = '';
+            }
+        }
+
+        function filterQuebras() {
+            var desfechoFilter = document.getElementById('desfecho').value;
+            var zonaFilter = document.getElementById('zona').value;
+
+            var quebras = document.getElementsByClassName('quebra');
+
+            for (var i = 0; i < quebras.length; i++) {
+                var quebra = quebras[i];
+
+                var desfechoMatch = quebra.dataset.desfecho;
+                var zonaMatch = quebra.dataset.zona;
+
+                console.log(quebra.dataset);
+
+                if ((desfechoMatch === desfechoFilter || desfechoFilter === 'all') && (zonaMatch === zonaFilter || zonaFilter === 'all')) {
+                    quebra.style.display = '';
+                } else {
+                    quebra.style.display = 'none';
+                }
+            }
+        }
+    </script>
+    
 
   </body>
 </html>
