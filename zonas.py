@@ -129,3 +129,4 @@ def get_defensores(dados, time):
     defensores = [ruptura["nomes_jogadores_defesa"] for ruptura in rupturas]
     return defensores
 print(get_defensores(data,'1'))
+
