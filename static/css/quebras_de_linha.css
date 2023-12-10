@@ -658,6 +658,20 @@ p {
     color: black;          /* Text color inside the charts */
 }
 
+.player-list-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.jogadores-atacando {
+    border: 1px solid black; /* Black border around the container */
+    margin-bottom: 15px;     /* 15px space below the container */
+    /* Other styles like padding, background, etc., can be added as needed */
+}
+
+
 
 @media screen and (max-width: 768px) {
     .main-container,
