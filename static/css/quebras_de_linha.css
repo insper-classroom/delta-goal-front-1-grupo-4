@@ -593,6 +593,59 @@ p {
     width: 705px;
     /* Largura da linha */
 }
+.filtros-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white; /* Light grey background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px white; /* Subtle shadow for depth */
+}
+.filtro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 100px; /* Reduz a margem entre os filtros */
+}
+.filtro label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Darker text color for contrast */
+}
+
+.filtro select {
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .main-container,
+    .left-container,
+    .right-container,
+    .listas-jogadores-container {
+        flex-direction: column;
+    }
+
+    .left-container,
+    .right-container {
+        width: 100%;
+    }
+
+    .scroll-list-container li {
+        width: auto;
+    }
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filtro {
+        width: 100%;
+        margin: 10px 0; /* Increase spacing for vertical layout */
+}
+
 
 @media screen and (max-width: 768px) {
     .main-container,
@@ -609,6 +662,15 @@ p {
 
     .scroll-list-container li {
         width: auto;
+    }
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filtro {
+        width: 100%;
+        margin: 10px 0; /* Increase spacing for vertical layout */
     }
 }
 
