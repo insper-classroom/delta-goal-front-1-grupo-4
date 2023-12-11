@@ -35,7 +35,7 @@
             title: 'Desfechos Palmeiras'
         };
         
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById('grafico-desfechos-1'));
         
         
         chart.draw(data, options);
@@ -60,7 +60,7 @@
             title: 'Desfechos Bragantino'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        var chart = new google.visualization.PieChart(document.getElementById('grafico-desfechos-2'));
 
 
         chart.draw(data, options);
@@ -154,10 +154,12 @@
         </style>
         <div class="graficos">
             <div class="graficos-time-1">
+                <h2>Palmeiras</h2>
                 <div id="grafico-cruzamentos-1"></div>
                 <div id="grafico-desfechos-1"></div>
             </div>
             <div class="graficos-time-2">
+                <h2>Bragantino</h2>
                 <div id="grafico-cruzamentos-2"></div>
                 <div id="grafico-desfechos-2"></div>
             </div>
@@ -235,14 +237,7 @@
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
         google.charts.load('current', { 'packages': ['corechart'] });
-
-
         </script>
-        <div class="pup">
-            <div id="piechart" style=" height: 400px; margin: 50px; color:black;"></div>
-            <div id="piechart1" style=" height: 400px; margin: 50px; color:black;"></div>
-        </div>
-
 
         <div class="right-container">
             <h2>Lances</h2>

@@ -652,18 +652,12 @@ p {
         width: 100%;
         margin: 10px 0; /* Increase spacing for vertical layout */
 }
-.pup {
-    display: flex;         
-    width: 100vw;
-    height: 500px;
-    flex-direction: row;
-}
 
-#piechart, #piechart1 {
-    width: 500px;          /* Width of each chart */
-    height: 400px;         /* Height of each chart */
-    margin: 50px;          /* Margin around each chart */
-    color: black;          /* Text color inside the charts */
+#grafico-desfechos-1, #grafico-desfechos-2 {
+    width: 500px;          
+    height: 400px;      
+    margin: 50px;  
+    color: black;  
 }
 
 .player-list-container {
