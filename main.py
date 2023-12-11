@@ -65,18 +65,13 @@ def ver_dados():
 
 @app.route("/cruzamentos")
 def cruzamentos():
-    destaques = requests.get("http://localhost:5000/cruzamentos/destaques")
-    destaques = destaques.json()["destaques"]
-    porcentagens = requests.get("http://localhost:5000/cruzamentos/zonas")
-    porcentagens = porcentagens.json()
-    zone_percentages = porcentagens["zonas"]["pal"]
-    zone_percentages_bragan = porcentagens["zonas"]["red"]
-    desfechos = requests.get("http://localhost:5000/cruzamentos/desfechos")
-    desfechos = desfechos.json()
-    desfechos = desfechos["desfechos"]
-    cruzamentos = requests.get("http://localhost:5000/cruzamentos")
-    cruzamentos_palmeiras = cruzamentos.json()["cruzamentos"]["pal"]
-    cruzamentos_bragantino = cruzamentos.json()['cruzamentos']['red']
+    data = requests.get("http://localhost:5000/cruzamentos/geral")
+    destaques = data.json()["destaques"]
+    zone_percentages = data.json()["zonas"]["pal"]
+    zone_percentages_bragan = data.json()["zonas"]["red"]
+    desfechos = data.json()["desfechos"]
+    cruzamentos_palmeiras = data.json()["cruzamentos"]["pal"]
+    cruzamentos_bragantino = data.json()["cruzamentos"]["red"]
     print(destaques)
     return render_template(
         "cruzamentos.html",
@@ -91,8 +86,6 @@ def cruzamentos():
 def quebras():
     destaques = requests.get("http://localhost:5000/quebra_linha/destaques")
     destaques = destaques.json()["destaques"]
-    # quebras = requests.get("http://localhost:5000/quebra_linha")
-    # quebras_palmeiras = quebras.json()["quebras_linha"]["pal"]
     quebra_palmeiras= data['time']['1']['rupturas']
     quebra_bragantino= data['time']['5']['rupturas']
     desfechos=aaaa(data)

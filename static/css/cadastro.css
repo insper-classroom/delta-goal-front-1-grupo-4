@@ -27,7 +27,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-right: 2px solid #000; /* Adiciona uma borda vertical à direita */
+    border-right: 2px solid #000; 
 
 }
 
@@ -73,8 +73,8 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .button {
-    display: inline-block; /* Permite a aplicação de padding e width */
-    width: 45%; /* Reduz a largura do botão */
+    display: inline-block; 
+    width: 45%; 
     padding: 10px;
     border: none;
     border-radius: 50px;
@@ -83,12 +83,12 @@ input[type="text"], input[type="password"], input[type="email"] {
     text-align: center;
     font-size: 16px;
     cursor: pointer;
-    text-decoration: none; /* Remove o sublinhado do link */
+    text-decoration: none; 
 
 }
 
 .button:hover {
-    background-color: #0056b3; /* Muda a cor do botão ao passar o mouse */
+    background-color: #0056b3; 
 }
 
 

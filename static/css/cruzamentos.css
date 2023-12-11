@@ -16,7 +16,6 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* ou absolute, dependendo do layout */
     z-index: 1000;
     flex: 0 0 auto;
 }
@@ -84,7 +83,6 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    /* Ajuste conforme necessário */
 }
 
 .video-btn {
@@ -112,42 +110,33 @@ input[type="number"] {
 .campo-container {
     display: flex;
     justify-content: center;
-    /* Centraliza o campo de futebol horizontalmente */
     align-items: center;
-    /* Centraliza o campo de futebol verticalmente */
     height: 100vh;
-    /* Altura total da viewport */
 }
 
 .campo-futebol {
     position: relative;
     width: 640px;
-    /* Largura da sua imagem */
     height: 360px;
-    /* Altura da sua imagem */
     margin: auto;
-    /* Isso também ajudará a centralizar o campo se não estiver usando flexbox */
 }
 
 .campo-futebol img {
     width: 100%;
     height: auto;
     display: block;
-    /* Remove espaços em branco abaixo da imagem */
 }
 
 .zona {
     position: absolute;
     cursor: pointer;
     border: 2px solid #d032ce;
-    /* Cor da borda como na imagem */
     background-color: rgba(109, 1, 111, 0.5);
     font-size: small;
 }
 
 .zona:hover {
     background-color: rgba(109, 1, 111, 0.5);
-    /* Cor mais opaca ao passar o mouse */
 
 }
 
@@ -177,7 +166,6 @@ input[type="number"] {
 }
 
 
-/* lado esquerdo */
 #D2-2 {
     top: 3%;
     left: 4.2%;
@@ -248,7 +236,6 @@ input[type="number"] {
     height: 18.4%;
 }
 
-/* lado direita */
 
 #E2-2-D {
     top: 3%;
@@ -331,7 +318,6 @@ input[type="number"] {
 .left-container,
 .right-container {
     flex: none;
-    /* Ambos tomarão 50% do espaço disponível */
     display: block;
     width: auto;
 
@@ -341,7 +327,6 @@ input[type="number"] {
 .video-container {
     max-height: 100%;
     display: block;
-    /* Remove espaços em branco abaixo da imagem */
 
 }
 
@@ -355,31 +340,25 @@ input[type="number"] {
 .team-info {
     position: absolute;
     top: -50px;
-    /* Ajuste a altura conforme necessário */
     display: flex;
     align-items: center;
     color: #879093;
-    /* ou a cor que desejar para o texto */
     font-weight: bold;
     font-size: 1.5em;
-    /* Ajuste o tamanho do texto conforme necessário */
 }
 
 .team-info img {
     width: 40px;
-    /* Ajuste o tamanho conforme necessário */
     height: auto;
     margin-right: 10px;
 }
 
 .left-team {
     left: 10px;
-    /* Ajuste conforme necessário para alinhar com o lado esquerdo do campo */
 }
 
 .right-team {
     right: 10px;
-    /* Ajuste conforme necessário para alinhar com o lado direito do campo */
 }
 
 p {
@@ -397,7 +376,6 @@ p {
 }
 
 .lista-jogadores {
-    /* list-style: none; */
     padding: 0;
     margin: 0;
     display: flex;
@@ -408,20 +386,14 @@ p {
 .jogador-item {
     display: flex;
     align-items: center;
-    /* Centraliza verticalmente o conteúdo do item */
     margin-bottom: 10px;
-    /* Espaçamento entre os itens */
 }
 
 .jogador-item img {
     width: 50px;
-    /* Largura da foto do jogador */
     height: 50px;
-    /* Altura da foto do jogador */
     border-radius: 50%;
-    /* Torna a foto circular */
     margin-right: 10px;
-    /* Espaçamento entre a foto e as informações do jogador */
     object-fit: cover;
 
 
@@ -429,18 +401,13 @@ p {
 
 .jogador-info h3 {
     font-size: 1em;
-    /* Tamanho do nome do jogador */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 .jogador-info p {
     font-size: 0.8em;
-    /* Tamanho da posição do jogador */
     color: #666;
-    /* Cor do texto da posição */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 
@@ -449,7 +416,6 @@ p {
     justify-content: space-around;
     width: 100%;
     align-items: flex-start;
-    /* Alinha os itens ao topo */
 }
 
 .list-divider {
@@ -480,7 +446,6 @@ p {
     padding: 5px;
     border-bottom: 1px solid #ccc;
     width: 705px;
-    /* Largura da linha */
 }
 
 .scroll-list-container li:hover {
