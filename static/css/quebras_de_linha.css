@@ -13,7 +13,6 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* ou absolute, dependendo do layout */
     z-index: 1000;
     flex: 0 0 auto;
 }
@@ -81,7 +80,6 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    /* Ajuste conforme necessário */
 }
 
 .video-btn {
@@ -109,42 +107,33 @@ input[type="number"] {
 .campo-container {
     display: flex;
     justify-content: center;
-    /* Centraliza o campo de futebol horizontalmente */
     align-items: center;
-    /* Centraliza o campo de futebol verticalmente */
     height: 100vh;
-    /* Altura total da viewport */
 }
 
 .campo-futebol {
     position: relative;
     width: 640px;
-    /* Largura da sua imagem */
     height: 360px;
-    /* Altura da sua imagem */
     margin: auto;
-    /* Isso também ajudará a centralizar o campo se não estiver usando flexbox */
 }
 
 .campo-futebol img {
     width: 100%;
     height: auto;
     display: block;
-    /* Remove espaços em branco abaixo da imagem */
 }
 
 .zona {
     position: absolute;
     cursor: pointer;
     border: 2px solid #d032ce;
-    /* Cor da borda como na imagem */
     background-color: rgba(109, 1, 111, 0.5);
     font-size: small;
 }
 
 .zona:hover {
     background-color: rgba(109, 1, 111, 0.5);
-    /* Cor mais opaca ao passar o mouse */
 
 }
 .zona .info {
@@ -176,7 +165,6 @@ input[type="number"] {
     padding: 5px;
     border-bottom: 1px solid #ccc;
     width: 705px;
-    /* Largura da linha */
 }
 
 .scroll-list-container li:hover {
@@ -184,7 +172,6 @@ input[type="number"] {
     text-align: center;
 }
 
-/* Ataque e defesa */
 .player-list-container {
     display: flex;
     justify-content: space-around;
@@ -214,7 +201,6 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    /* Ajuste conforme necessário */
 }
 
 .video-btn {
@@ -242,7 +228,6 @@ input[type="number"] {
 .video-container {
     max-height: 100%;
     display: block;
-    /* Remove espaços em branco abaixo da imagem */
 
 }
 .zona:hover .nome-zona {
@@ -252,9 +237,6 @@ input[type="number"] {
 .zona:hover .porcentagem-zona {
     opacity: 1;
 }
-
-
-/* lado esquerdo */
 
 #M2 {
     top: 3%;
@@ -309,7 +291,6 @@ input[type="number"] {
 .video-container {
     max-height: 100%;
     display: block;
-    /* Remove espaços em branco abaixo da imagem */
 
 }
 
@@ -318,36 +299,28 @@ input[type="number"] {
 }
 
 
-
-
 .team-info {
     position: absolute;
     top: -50px;
-    /* Ajuste a altura conforme necessário */
     display: flex;
     align-items: center;
     color: #879093;
-    /* ou a cor que desejar para o texto */
     font-weight: bold;
     font-size: 1.5em;
-    /* Ajuste o tamanho do texto conforme necessário */
 }
 
 .team-info img {
     width: 40px;
-    /* Ajuste o tamanho conforme necessário */
     height: auto;
     margin-right: 10px;
 }
 
 .left-team {
     left: 10px;
-    /* Ajuste conforme necessário para alinhar com o lado esquerdo do campo */
 }
 
 .right-team {
     right: 10px;
-    /* Ajuste conforme necessário para alinhar com o lado direito do campo */
 }
 
 p {
@@ -377,30 +350,21 @@ p {
 
 .lista-jogadores {
     list-style: none;
-    /* Remove estilos padrão da lista */
     padding: 0;
-    /* Remove o padding padrão */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 .jogador-item {
     display: flex;
     align-items: center;
-    /* Centraliza verticalmente o conteúdo do item */
     margin-bottom: 10px;
-    /* Espaçamento entre os itens */
 }
 
 .jogador-item img {
     width: 50px;
-    /* Largura da foto do jogador */
     height: 50px;
-    /* Altura da foto do jogador */
     border-radius: 50%;
-    /* Torna a foto circular */
     margin-right: 10px;
-    /* Espaçamento entre a foto e as informações do jogador */
     object-fit: cover;
 
 
@@ -408,18 +372,13 @@ p {
 
 .jogador-info h3 {
     font-size: 1em;
-    /* Tamanho do nome do jogador */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 .jogador-info p {
     font-size: 0.8em;
-    /* Tamanho da posição do jogador */
     color: #666;
-    /* Cor do texto da posição */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 
@@ -428,14 +387,12 @@ p {
     justify-content: space-around;
     width: 100%;
     align-items: flex-start;
-    /* Alinha os itens ao topo */
 }
 
 
 
 .scroll-list-container {
     height: 200px;
-    /* ou a altura que você desejar */
     overflow-y: auto;
     display: flex;
     width: 100%;
@@ -454,7 +411,6 @@ p {
     padding: 5px;
     border-bottom: 1px solid #ccc;
     width: 705px;
-    /* Largura da linha */
 }
 
 .scroll-list-container li:hover {
@@ -462,7 +418,6 @@ p {
     text-align: center;
 }
 
-/* Ataque e defesa */
 .player-list-container {
     display: flex;
     justify-content: space-around;
@@ -473,11 +428,8 @@ p {
 .jogadores-atacando,
 .jogadores-defendendo {
     flex: 1;
-    /* Cada elemento ocupa metade do espaço */
     max-height: 300px;
-    /* Altura máxima antes de mostrar a rolagem */
     overflow-y: auto;
-    /* Mostra a barra de rolagem vertical se necessário */
     margin: 0 10px;
 
 
@@ -485,24 +437,17 @@ p {
 
 
 
-/* Adicionais para as listas UL dentro dos contêineres */
 #jogadores-atacando-list,
 #jogadores-defendendo-list {
     list-style: none;
-    /* Remove marcadores padrão da lista */
     padding: 0;
-    /* Remove preenchimento padrão */
     margin: 0;
-    /* Remove margens padrão */
     cursor: pointer;
 }
 .lista-jogadores-container {
     max-height: 300px;
-    /* Ajuste conforme necessário */
     overflow-y: auto;
-    /* Ativa a rolagem vertical se o conteúdo exceder a altura máxima */
     margin: 0 10px;
-    /* Espaçamento acima e abaixo do contêiner */
     margin: 10px;
     flex: 1;
     overflow-y: auto;
@@ -510,30 +455,21 @@ p {
 
 .lista-jogadores {
     list-style: none;
-    /* Remove estilos padrão da lista */
     padding: 0;
-    /* Remove o padding padrão */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 .jogador-item {
     display: flex;
     align-items: center;
-    /* Centraliza verticalmente o conteúdo do item */
     margin-bottom: 10px;
-    /* Espaçamento entre os itens */
 }
 
 .jogador-item img {
     width: 50px;
-    /* Largura da foto do jogador */
     height: 50px;
-    /* Altura da foto do jogador */
     border-radius: 50%;
-    /* Torna a foto circular */
     margin-right: 10px;
-    /* Espaçamento entre a foto e as informações do jogador */
     object-fit: cover;
 
 
@@ -541,18 +477,13 @@ p {
 
 .jogador-info h3 {
     font-size: 1em;
-    /* Tamanho do nome do jogador */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 .jogador-info p {
     font-size: 0.8em;
-    /* Tamanho da posição do jogador */
     color: #666;
-    /* Cor do texto da posição */
     margin: 0;
-    /* Remove a margem padrão */
 }
 
 
@@ -561,25 +492,18 @@ p {
     justify-content: space-around;
     width: 100%;
     align-items: flex-start;
-    /* Alinha os itens ao topo */
 }
 
 .list-divider {
     width: 1px;
-    /* Largura da linha */
     background-color: #dcdcdc;
-    /* Cor da linha, escolha uma cor que combine com seu design */
     margin: 0 20px;
-    /* Espaçamento horizontal da linha */
     height: auto;
-    /* Altura automática para se ajustar ao conteúdo */
     align-self: stretch;
-    /* Estica a linha para a altura dos contêineres adjacentes */
 }
 
 .scroll-list-container {
     height: 200px;
-    /* ou a altura que você desejar */
     overflow-y: auto;
     display: flex;
     width: 100%;
@@ -598,26 +522,25 @@ p {
     padding: 5px;
     border-bottom: 1px solid #ccc;
     width: 705px;
-    /* Largura da linha */
 }
 .filtros-container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: white; /* Light grey background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px white; /* Subtle shadow for depth */
+    background-color: white;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px white;
 }
 .filtro {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 0 100px; /* Reduz a margem entre os filtros */
+    margin: 0 100px;
 }
 .filtro label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333; /* Darker text color for contrast */
+    color: #333; 
 }
 
 .filtro select {
@@ -650,7 +573,7 @@ p {
 
     .filtro {
         width: 100%;
-        margin: 10px 0; /* Increase spacing for vertical layout */
+        margin: 10px 0;
 }
 
 #grafico-desfechos-1, #grafico-desfechos-2 {
@@ -668,9 +591,8 @@ p {
 }
 
 .jogadores-atacando {
-    border: 1px solid black; /* Black border around the container */
-    margin-bottom: 15px;     /* 15px space below the container */
-    /* Other styles like padding, background, etc., can be added as needed */
+    border: 1px solid black; 
+    margin-bottom: 15px;
 }
 
 
@@ -698,11 +620,10 @@ p {
 
     .filtro {
         width: 100%;
-        margin: 10px 0; /* Increase spacing for vertical layout */
+        margin: 10px 0; 
     }
 }
 
-/* Estilização do Gráfico e Lista de Jogadores */
 .listas-jogadores-container {
     display: flex;
     flex-wrap: wrap;
@@ -714,7 +635,7 @@ p {
 .lista-jogadores-container,
 #piechart {
     flex: 1;
-    min-width: 250px; /* ajuste conforme necessário */
-    max-width: 500px; /* ajuste conforme necessário */
+    min-width: 250px; 
+    max-width: 500px;
     margin: 10px;
 }

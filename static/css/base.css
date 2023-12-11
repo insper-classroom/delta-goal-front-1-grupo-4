@@ -100,7 +100,7 @@ li{
     border-bottom-left-radius: 30px;
 }
 
-.navigation ul li:nth-child(1){ /* Espaço entre logo e links */
+.navigation ul li:nth-child(1){ 
     margin-top: 10px;
     margin-bottom: 40px;
 }
@@ -114,7 +114,7 @@ li{
 }
 
 
-.navigation ul li a{ /* Letras */
+.navigation ul li a{ 
     position: relative;
     display: block;
     width: 100%;
@@ -124,11 +124,11 @@ li{
 }
 
 .navigation ul li:hover a,
-.navigation ul li.hovered a{ /* Cor letra pos hover */
+.navigation ul li.hovered a{ 
     color: rgb(2, 2, 2);
 }
 
-.navigation ul li a .icon{ /* Formatação dos icones */
+.navigation ul li a .icon{ 
     position: relative;
     display: block;
     min-width: 60px;
@@ -319,20 +319,20 @@ li{
     padding: 12px 10px;
 }
 
-.profs table tr td h4 { /* Nome profissional */
+.profs table tr td h4 { 
     font-size: 19px;
     font-weight: 400;
     line-height: 1.2rem;
 }
-.profs table tr td h4 span { /* email profissional */
+.profs table tr td h4 span { 
     font-size: 14px;
     color: var(pink);
 }
-.profs table tr:hover {/* Hover de cada profissional */
+.profs table tr:hover { 
     background: var(--blue);
     color: var(--white);
 }
-.profs table tr:hover td h4 span { /* Letra fica branca no hover */
+.profs table tr:hover td h4 span { 
     color: var(--white);
 }
 
@@ -341,11 +341,11 @@ li{
     justify-content: space-between;
     align-items: flex-start;
 }
-.prof h2 { /* Lista Profissionais */
+.prof h2 { 
     font-weight: 300;
     color: var(--blue);
 }
-.prof .btn { /* Botão view all */
+.prof .btn { 
     position: relative;
     padding: 5px 10px;
     background: var(--blue);
@@ -433,8 +433,8 @@ li{
     line-height: 1.2rem;
 }
 
-/* PARTE RESPONSIVA */
-@media (max-width: 991px) { /* !!!!!!! ADD MUDANCAS !!!!!! */
+
+@media (max-width: 991px) { 
 .navigation {
     left: -300px;
 }
@@ -495,7 +495,7 @@ li{
 
 /* PERFIL */
 
-.new_time{ /* Criar novo time */
+.new_time{
     position: relative;
     padding: 5px 10px;
     background: var(--blue);
@@ -503,7 +503,7 @@ li{
     color: var(--white);
     border-radius: 6px;
 }
-.btn_perfil{ /* Editar Perfil e Trocar senha */
+.btn_perfil{ 
     position: relative;
     padding: 5px 10px;
     background: var(--blue);
@@ -565,14 +565,7 @@ li{
     color: pink;
 }
 
-/* LISTA PROFISSIONAIS */
 .profs_profs {
-    /* position: relative;
-    min-height: 10px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px; */ /* QUADRARDO EM VOLTA */
     padding: 20px;
     margin-left: 20px;
 }
@@ -596,28 +589,27 @@ li{
     padding: 12px 10px;
 }
 
-.profs_profs table tr td h4 { /* Nome profissional */
+.profs_profs table tr td h4 { 
     font-size: 19px;
     font-weight: 400;
     line-height: 1.2rem;
 }
-.profs_profs table tr td h4 span { /* email profissional */
+.profs_profs table tr td h4 span { 
     font-size: 14px;
     color: var(pink);
 }
-.profs_profs table tr:hover {/* Hover de cada profissional */
-    background: var(--blue);
+.profs_profs table tr:hover {
     color: var(--white);
 }
-.profs_profs table tr:hover td h4 span { /* Letra fica branca no hover */
+.profs_profs table tr:hover td h4 span { 
     color: var(--white);
 }
 
-.prof_prof h2 { /* Lista Profissionais */
+.prof_prof h2 { 
     font-weight: 400;
     color: var(--blue);
 }
-.prof_prof .btn { /* Botão do Search Bar */
+.prof_prof .btn { 
     position: relative;
     padding: 2.5px 5px;
     background: var(--blue);
@@ -628,18 +620,11 @@ li{
 }
 
 
-/* LISTA TIMES */
+
 .details_times{
     padding: 20px;
     margin-left: 20px;
 }
-
-/* .details_times .times_times {
-    background: var(--white);
-    padding: 20px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-} */ /* BORDA EM VOLTA */
 
 .cardHeader_times h2 {
     font-weight: 400;
@@ -666,8 +651,6 @@ li{
     font-weight: 400;
     line-height: 1.2rem;
 }
-
-/* CADASTRO TIME */
 
 .novotime_card .btn{
     position: relative;
