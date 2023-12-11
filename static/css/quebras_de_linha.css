@@ -158,10 +158,9 @@ input[type="number"] {
 
 .scroll-list-container {
     height: 200px;
-    /* ou a altura que você desejar */
     overflow-y: auto;
     display: flex;
-    width: 100%;
+    width: 500px;
     align-self: stretch;
     justify-content: space-around;
     align-items: flex-start;
@@ -358,14 +357,22 @@ p {
 
 .lista-jogadores-container {
     max-height: 300px;
-    /* Ajuste conforme necessário */
     overflow-y: auto;
-    /* Ativa a rolagem vertical se o conteúdo exceder a altura máxima */
     margin: 0 10px;
-    /* Espaçamento acima e abaixo do contêiner */
     margin: 10px;
     flex: 1;
     overflow-y: auto;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.graficos-time-1, .graficos-time-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .lista-jogadores {
@@ -646,9 +653,10 @@ p {
         margin: 10px 0; /* Increase spacing for vertical layout */
 }
 .pup {
-    display: flex;         /* Enables flexbox layout */
-    justify-content: center; /* Centers the items horizontally */
-    align-items: center;    /* Aligns items vertically in the center */
+    display: flex;         
+    width: 100vw;
+    height: 500px;
+    flex-direction: row;
 }
 
 #piechart, #piechart1 {

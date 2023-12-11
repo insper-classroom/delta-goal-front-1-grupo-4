@@ -389,23 +389,20 @@ p {
 
 .lista-jogadores-container {
     max-height: 300px;
-    /* Ajuste conforme necessário */
     overflow-y: auto;
-    /* Ativa a rolagem vertical se o conteúdo exceder a altura máxima */
     margin: 0 10px;
-    /* Espaçamento acima e abaixo do contêiner */
     margin: 10px;
     flex: 1;
     overflow-y: auto;
 }
 
 .lista-jogadores {
-    list-style: none;
-    /* Remove estilos padrão da lista */
+    /* list-style: none; */
     padding: 0;
-    /* Remove o padding padrão */
     margin: 0;
-    /* Remove a margem padrão */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .jogador-item {
@@ -457,20 +454,14 @@ p {
 
 .list-divider {
     width: 1px;
-    /* Largura da linha */
     background-color: #dcdcdc;
-    /* Cor da linha, escolha uma cor que combine com seu design */
     margin: 0 20px;
-    /* Espaçamento horizontal da linha */
     height: auto;
-    /* Altura automática para se ajustar ao conteúdo */
     align-self: stretch;
-    /* Estica a linha para a altura dos contêineres adjacentes */
 }
 
 .scroll-list-container {
     height: 200px;
-    /* ou a altura que você desejar */
     overflow-y: auto;
     display: flex;
     width: 100%;
@@ -497,7 +488,6 @@ p {
     text-align: center;
 }
 
-/* Ataque e defesa */
 .player-list-container {
     display: flex;
     justify-content: space-around;
@@ -508,11 +498,8 @@ p {
 .jogadores-atacando,
 .jogadores-defendendo {
     flex: 1;
-    /* Cada elemento ocupa metade do espaço */
     max-height: 300px;
-    /* Altura máxima antes de mostrar a rolagem */
     overflow-y: auto;
-    /* Mostra a barra de rolagem vertical se necessário */
     margin: 0 10px;
 
 
@@ -520,47 +507,38 @@ p {
 
 .list-divider {
     width: 1px;
-    /* Largura da linha divisória */
     background-color: #dcdcdc;
-    /* Cor da linha */
     margin: 0 20px;
-    /* Espaçamento horizontal da linha */
     align-self: stretch;
-    /* Ajusta a altura conforme os elementos adjacentes */
     height: auto;
-    /* Altura automática para se ajustar ao conteúdo */
 
 }
 
-/* Adicionais para as listas UL dentro dos contêineres */
 #jogadores-atacando-list,
 #jogadores-defendendo-list {
     list-style: none;
-    /* Remove marcadores padrão da lista */
     padding: 0;
-    /* Remove preenchimento padrão */
     margin: 0;
-    /* Remove margens padrão */
     cursor: pointer;
 }
 .filtros-container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: white; /* Light grey background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px white; /* Subtle shadow for depth */
+    background-color: white;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px white;
 }
 .filtro {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 0 100px; /* Reduz a margem entre os filtros */
+    margin: 0 100px; 
 }
 .filtro label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333; /* Darker text color for contrast */
+    color: #333; 
 }
 
 .filtro select {
@@ -569,4 +547,26 @@ p {
     border-radius: 4px;
     background-color: white;
     cursor: pointer;
+}
+
+.graficos-time-1, .graficos-time-2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    height: fit-content;
+}
+
+.graficos {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: fit-content;
+
 }
